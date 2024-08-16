@@ -8,6 +8,7 @@ import LikedPage from "./Pages/LikedPage";
 import { UserProvider } from "./Contexts/UserProvider";
 import CartPage from "./Pages/CartPage";
 import Tshirt from "./Pages/Tshirt";
+import HoodieDetails from "./Pages/HoodieDetails";
 
 
 
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/" element={<Main />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/hoodie" element={<HoodiesPage />} />
+          <Route path='/hoodie/:id' element={<HoodieDetails/>}/>
           <Route path="tshirt" element={<Tshirt/>}/>
           <Route path="/favourite" element={<LikedPage/>}/>
           <Route path="/cart" element={<CartPage/>}/>
