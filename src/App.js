@@ -30,7 +30,6 @@ export default function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/hoodie" element={<HoodiesPage />} />
           <Route path="tshirt" element={<Tshirt/>}/>
-          <Route path='/test' element={<TestPage />} />
           <Route path="/favourite" element={<LikedPage/>}/>
           <Route path="/cart" element={<CartPage/>}/>
         </Routes>

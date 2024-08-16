@@ -2,12 +2,11 @@ import HOODIES from "../Modules/Items";
 import { useUser } from "../Contexts/UserProvider";
 
 export default function HoodiesPage() {
-  const { cart, addToCart, addToLike, editLike ,like } = useUser();
+  const { cart, addToCart, addToFavourites, editFavourites ,favourites } = useUser();
 
 
 
-  console.log(HOODIES);
-  console.log(cart)
+
 
   return (
     <div className="w-full flex flex-col items-center justify-center ">
@@ -23,7 +22,7 @@ export default function HoodiesPage() {
                 <div className="w-[187px] flex justify-end">
 
                 {
-                 like.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2" onClick={()=>editLike(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={()=>addToLike(hoodie)}></i>
+                 favourites.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2" onClick={()=>editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={()=>addToFavourites(hoodie)}></i>
                 }
                                  
                 </div>
