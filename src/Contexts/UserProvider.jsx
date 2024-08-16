@@ -1,10 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import HOODIES from "../Modules/Items";
 
 // Create a context
 const UserContext = createContext();
 
 // Provider component
 export function UserProvider({ children }) {
+
+  const[products,setProducts]=useState(HOODIES);
 
   const [heart, setHeart] = useState(false);
 
@@ -69,7 +72,7 @@ export function UserProvider({ children }) {
   }
 
   return (
-    <UserContext.Provider value={{ heart, favourites, cart, addToCart, editCart, addToFavourites, editFavourites }}>
+    <UserContext.Provider value={{ heart, favourites, cart, addToCart, editCart, addToFavourites, editFavourites,products }}>
       {children}
     </UserContext.Provider>
   );

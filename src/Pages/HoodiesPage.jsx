@@ -4,15 +4,16 @@ import { useNavigate } from "react-router-dom";
 
 export default function HoodiesPage() {
 
-  const { addToCart, addToFavourites, editFavourites, favourites } = useUser();
+  const { addToCart, addToFavourites, editFavourites, favourites ,products } = useUser();
 
-  const navigate=useNavigate();
+
+  const navigate = useNavigate();
 
   const handleClick = (index) => {
     navigate(`/hoodie/${index}`); // Navigate to the detail page with the hoodie index as a parameter
   };
 
-
+  console.log("fav", favourites);
 
 
 
@@ -23,10 +24,10 @@ export default function HoodiesPage() {
       </div>
       <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
         {
-          HOODIES.map((hoodie, index) => {
+          products.map((hoodie, index) => {
             return (
               <div key={index} className="h-[281px] w-[187px] flex flex-col items-center bg-red-300">
-                <img src={hoodie.url} alt="" className="h-44 w-40" onClick={()=>handleClick(index)}/>
+                <img src={hoodie.url} alt="" className="h-44 w-40" onClick={() => handleClick(index)} />
                 <div className="w-[187px] flex justify-end">
 
                   {
