@@ -11,9 +11,10 @@ export default function Header() {
 
 
     return (
-        <header className="w-screen h-16 bg-black">
-            <nav className="w-full h-16 bg-red-500 flex items-center justify-around" role="navigation">
-                <div className="left flex items-center w-2/4 text-white">
+        <header className="w-screen h-16 bg-[#faf9f8] text-black font-thin">
+            <nav className="w-full h-16  flex items-center justify-around" role="navigation">
+                <div className="left flex items-center w-2/4 ">
+
                     <div className='px-1 w-5'>
                         <i className={`lg:hidden fa-solid ${menu ? "fa-x" : "fa-bars"}`} onClick={() => setMenu(!menu)}></i>
                     </div>
@@ -29,11 +30,11 @@ export default function Header() {
                         </div>
                     </div>
 
-                    <h1 className="text-center cursor-pointer px-2">Surreal Store</h1>
+                    <h1 className="text-center cursor-pointer px-2 ">Surreal Store</h1>
                 </div>
 
                 <div className="right flex w-2/4 justify-end cursor-pointer">
-                    <div className='flex w-24 gap-2 items-center justify-around text-white lg:w-[300px]'>
+                    <div className='flex w-24 gap-2 items-center justify-around text-black  font-thin lg:w-[300px]'>
                         <div className='flex gap-1 items-center'>
                             <i className="fa-regular fa-user" onClick={() => navigate('/profile')}></i>
                             <p className='hidden lg:block text-sm'>Sign In</p>

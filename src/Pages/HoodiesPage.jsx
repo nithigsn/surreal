@@ -26,12 +26,12 @@ export default function HoodiesPage() {
         {
           products.map((hoodie, index) => {
             return (
-              <div key={index} className="h-[281px] w-[187px] flex flex-col items-center bg-red-300">
+              <div key={index} className="h-[281px] w-[187px] flex flex-col items-center bg-slate-100 rounded-md">
                 <img src={hoodie.url} alt="" className="h-44 w-40" onClick={() => handleClick(index)} />
                 <div className="w-[187px] flex justify-end">
 
                   {
-                    favourites.includes(hoodie.name) ? <i className="fa-solid fa-heart text-end pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(hoodie)}></i>
+                    products.includes(hoodie) === favourites.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(hoodie)}></i>
                   }
 
                 </div>
@@ -39,7 +39,7 @@ export default function HoodiesPage() {
                   <p className="pl-2">{hoodie.name}</p>
                   <p className="pl-2">{hoodie.price}</p>
                 </div>
-                <div className="flex gap-1 items-center justify-center bg-black text-xs text-white w-28 h-6">
+                <div className="flex gap-1 items-center justify-center bg-black text-xs text-white w-28 h-6 rounded-sm">
                   <button onClick={() => addToCart(hoodie)}> Add to</button>
                   <i className="fa-solid fa-bag-shopping"></i>
                 </div>

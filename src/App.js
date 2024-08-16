@@ -9,6 +9,7 @@ import { UserProvider } from "./Contexts/UserProvider";
 import CartPage from "./Pages/CartPage";
 import Tshirt from "./Pages/Tshirt";
 import HoodieDetails from "./Pages/HoodieDetails";
+import Footer from "./Components/Footer";
 
 
 
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="/favourite" element={<LikedPage/>}/>
           <Route path="/cart" element={<CartPage/>}/>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </UserProvider>
   );

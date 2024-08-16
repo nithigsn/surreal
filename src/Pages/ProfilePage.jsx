@@ -1,6 +1,6 @@
 export default function ProfilePage(){
     return(
-        <div>
+        <div className="w-full h-screen ">
             <p className="">Profile Page</p>
         </div>
     );
