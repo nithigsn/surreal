@@ -1,21 +1,47 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // Create a context
 const UserContext = createContext();
 
-//  provider component
+// Provider component
 export function UserProvider({ children }) {
 
   const [heart, setHeart] = useState(false);
 
+  // Safely retrieve and parse favourites from localStorage
+  const [favourites, setFavourites] = useState(() => {
+    try {
+      const savedFavourites = localStorage.getItem('favourites');
+      return savedFavourites ? JSON.parse(savedFavourites) : [];
+    } catch (error) {
+      console.error("Error parsing favourites from localStorage:", error);
+      return [];
+    }
+  });
 
+  // Safely retrieve and parse cart from localStorage
+  const [cart, setCart] = useState(() => {
+    try {
+      const savedCart = localStorage.getItem('cart');
+      return savedCart ? JSON.parse(savedCart) : [];
+    } catch (error) {
+      console.error("Error parsing cart from localStorage:", error);
+      return [];
+    }
+  });
 
-  const [favourites, setFavourites] = useState([]);
-  const [cart, setCart] = useState([]);
+  // Persist cart state to localStorage
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
+  // Persist favourites state to localStorage
+  useEffect(() => {
+    localStorage.setItem('favourites', JSON.stringify(favourites));
+  }, [favourites]);
 
   function addToCart(value) {
-    setCart([...cart, value])
+    setCart([...cart, value]);
   }
 
   function editCart(index) {
@@ -23,24 +49,21 @@ export function UserProvider({ children }) {
     setCart(editedCart);
   }
 
-  function addToFavourites(value){
-    setFavourites([...favourites,value]);
+  function addToFavourites(value) {
+    setFavourites([...favourites, value]);
   }
 
-  function editFavourites(index){
-    const editedfavourites = favourites.filter((_, i ) => i !== index);
-    setFavourites(editFavourites);
+  function editFavourites(index) {
+    const editedFavourites = favourites.filter((_, i) => i !== index);
+    setFavourites(editedFavourites);
   }
-
-
 
   return (
-    <UserContext.Provider value={{ heart, favourites, cart, addToCart, editCart ,addToFavourites,editFavourites}}>
+    <UserContext.Provider value={{ heart, favourites, cart, addToCart, editCart, addToFavourites, editFavourites }}>
       {children}
     </UserContext.Provider>
   );
 }
-
 
 // Creating a custom hook to use the UserContext
 export function useUser() {
