@@ -4,7 +4,6 @@ import Links from "./Components/Links";
 import ProfilePage from "./Pages/ProfilePage";
 import Main from "./Pages/Main";
 import HoodiesPage from "./Pages/HoodiesPage";
-import TestPage from "./Pages/TestPage";
 import LikedPage from "./Pages/LikedPage";
 import { UserProvider } from "./Contexts/UserProvider";
 import CartPage from "./Pages/CartPage";

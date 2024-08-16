@@ -2,7 +2,7 @@ import HOODIES from "../Modules/Items";
 import { useUser } from "../Contexts/UserProvider";
 
 export default function HoodiesPage() {
-  const { cart, addToCart, addToFavourites, editFavourites ,favourites } = useUser();
+  const { addToCart, addToFavourites, editFavourites, favourites } = useUser();
 
 
 
@@ -21,16 +21,20 @@ export default function HoodiesPage() {
                 <img src={hoodie.url} alt="" className="h-44 w-40" />
                 <div className="w-[187px] flex justify-end">
 
-                {
-                 favourites.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2" onClick={()=>editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={()=>addToFavourites(hoodie)}></i>
-                }
-                                 
+                  {
+                    favourites.includes(hoodie.name) ? <i className="fa-solid fa-heart text-end pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(hoodie)}></i>
+                  }
+
                 </div>
                 <div className="items-start w-[187px]">
                   <p className="pl-2">{hoodie.name}</p>
                   <p className="pl-2">{hoodie.price}</p>
                 </div>
-                <button onClick={() => addToCart(hoodie)}>Add</button>
+                <div className="flex gap-1 items-center justify-center bg-black text-xs text-white w-28 h-6">
+                  <button onClick={() => addToCart(hoodie)}> Add to</button>
+                  <i className="fa-solid fa-bag-shopping"></i>
+                </div>
+
               </div>
             );
           })

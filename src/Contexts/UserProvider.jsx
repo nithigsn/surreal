@@ -41,7 +41,13 @@ export function UserProvider({ children }) {
   }, [favourites]);
 
   function addToCart(value) {
-    setCart([...cart, value]);
+    if (!cart.includes(value)) {
+      setCart([...cart, value]);
+    }
+    else{
+      console.log("Already in a cart")
+    }
+
   }
 
   function editCart(index) {
@@ -50,7 +56,11 @@ export function UserProvider({ children }) {
   }
 
   function addToFavourites(value) {
+
+   if(!favourites.includes(value)){
     setFavourites([...favourites, value]);
+   }
+   
   }
 
   function editFavourites(index) {

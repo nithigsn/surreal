@@ -2,7 +2,7 @@ import { useUser } from "../Contexts/UserProvider";
 
 export default function LikedPage() {
 
-    const { favourites, editFavourite } = useUser()
+    const { favourites, editFavourites } = useUser()
     return (
         <div className="w-full flex flex-col items-center justify-center ">
             <div className="text-center">
@@ -16,7 +16,7 @@ export default function LikedPage() {
                                 <img src={hoodie.url} alt="" className="h-44 w-40" />
                                 <div className="w-[187px] flex justify-end">
                                     {
-                                        favourites.includes(hoodie) && <i className="fa-solid fa-heart text-end pr-2" onClick={()=>editFavourite(index)}></i>
+                                        favourites.includes(hoodie) && <i className="fa-solid fa-heart text-end pr-2" onClick={()=>editFavourites(index)}></i>
                                     }
                                     
                                     </div>
