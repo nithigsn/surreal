@@ -58,19 +58,21 @@ export default function HoodieDetails() {
 
                 <div className="flex justify-around">
 
-                    <div className="h-7 w-16 border border-black text-center">XXS</div>
-                    <div className="h-7 w-16 border border-black text-center">XS</div>
-                    <div className="h-7 w-16 border border-black text-center">S</div>
-                    <div className="h-7 w-16 border border-black text-center">M</div>
-                    <div className="h-7 w-16 border border-black text-center">L</div>
-                    <div className="h-7 w-16 border border-black text-center">XL</div>
+                    <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">XXS</div>
+                    <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">XS</div>
+                    <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">S</div>
+                    <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">M</div>
+                    <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">L</div>
+                    <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">XL</div>
 
                 </div>
 
-                <div className="flex items-center justify-center">
+                <div className="flex gap-1 items-center justify-center w-full h-8 bg-black text-white  sticky top-1/2">
                     <i className="fa-solid fa-shopping-bag"></i>
                     Add
                 </div>
+
+                
 
 
 

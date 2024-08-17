@@ -2,24 +2,34 @@ import { useUser } from "../Contexts/UserProvider";
 
 export default function CartPage() {
 
-    const { cart, editCart } = useUser()
+    const { cart, editCart,  favourites, editFavourites, addToFavourites } = useUser()
     return (
         <div className="w-full flex flex-col items-center justify-center ">
             <div className="text-center">
-                <p>Cart Page</p>
+                <p>Carts</p>
             </div>
-            <div className="w-[90vw] flex flex-wrap gap-2 justify-center ">
+            <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
                 {
                     cart.map((hoodie, index) => {
                         return (
-                            <div key={index} className="h-[281px] w-[187px] flex flex-col items-center rounded-sm bg-white ">
-                                <img src={hoodie.url} alt="" className="h-44 w-40" />
-                                <div className="w-[187px] flex justify-end"><i className="fa-regular fa-heart text-end pr-2"></i></div>
-                                <div className="items-start w-[187px]">
+                            <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md">
+                                <img src={hoodie.url} alt="" className="h-40 w-36" />
+                                <div className="w-[150px] flex justify-end ">
+
+                                    {
+                                        favourites.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(hoodie)}></i>
+                                    }
+
+                                </div>
+                                <div className="items-start w-[150px]">
                                     <p className="pl-2">{hoodie.name}</p>
                                     <p className="pl-2">{hoodie.price}</p>
                                 </div>
-                                <button className="" onClick={()=>editCart(index)}>Remove</button>
+                                <div className="flex gap-1 items-center justify-center bg-black text-xs text-white w-28 h-6 rounded-sm mt-3">
+                                    <button onClick={() => editCart(index)}> Remove from</button>
+                                    <i className="fa-solid fa-bag-shopping"></i>
+                                </div>
+
                             </div>
                         );
                     })
@@ -31,5 +41,6 @@ export default function CartPage() {
             </div>
 
         </div>
+
     );
 }

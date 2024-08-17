@@ -11,7 +11,7 @@ export default function Header() {
 
 
     return (
-        <header className="w-screen h-16 bg-[#faf9f8] text-black font-thin">
+        <header className="w-full h-16 bg-[#faf9f8] text-black font-thin sticky top-0">
             <nav className="w-full h-16  flex items-center justify-around" role="navigation">
                 <div className="left flex items-center w-2/4 ">
 
