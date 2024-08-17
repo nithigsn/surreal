@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../Contexts/UserProvider';
+import MobileNav from './MobileNav';
 
 export default function Header() {
     const [menu, setMenu] = useState(false);
@@ -14,23 +15,10 @@ export default function Header() {
         <header className="w-full h-16 bg-[#faf9f8] text-black  sticky top-0">
             <nav className="w-full h-16  flex items-center justify-around" role="navigation">
                 <div className="left flex items-center w-2/4 ">
-
                     <div className='px-1 w-5'>
                         <i className={`lg:hidden fa-solid ${menu ? "fa-x" : "fa-bars"}`} onClick={() => setMenu(!menu)}></i>
                     </div>
-
-                    <div className={`h-screen w-screen absolute  bg-red-400 ${menu ? "flex" : "hidden"} `}>
-                        <div className='w-[90vw] '>
-
-                            <p className='text-green-500 '>hello</p>
-
-                        </div>
-                        <div>
-                            <button className='text-black' onClick={() => setMenu(!menu)}>Close</button>
-                        </div>
-                    </div>
-
-                    <h1 className="text-center cursor-pointer px-2 ">Surreal Store</h1>
+                     <h1 className="text-center cursor-pointer px-2 ">Surreal Store</h1>
                 </div>
 
                 <div className="right flex w-2/4 justify-end cursor-pointer">
@@ -52,6 +40,10 @@ export default function Header() {
                     </div>
                 </div>
             </nav>
+
+           {
+            menu ?  <MobileNav menu={menu} setMenu={setMenu}/> : ""
+           }
         </header>
     );
 }

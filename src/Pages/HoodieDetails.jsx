@@ -1,27 +1,28 @@
 import { useParams } from "react-router-dom";
 import HOODIES from "../Modules/Items";
 import { useUser } from "../Contexts/UserProvider";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function HoodieDetails() {
-    const [hoodieColor, setHoodieColor] = useState('');
+    const [openSections, setOpenSections] = useState({
+        description: false,
+        details: false,
+        careGuide: false,
+    });
+
     const { products } = useUser();
     const { id } = useParams();
     const hoodie = HOODIES[id];
 
-    useEffect(() => {
-        hoodieColorFind();
-    }, [hoodie, products]);
-
-    function hoodieColorFind() {
-        const matchedProduct = products.find(product => product.id === hoodie.id);
-        if (matchedProduct) {
-            setHoodieColor(matchedProduct.color); // Assuming products have a 'color' property
-        }
-    }
-
     if (!hoodie) {
         return <p>Hoodie not found</p>;
+    }
+
+    function handleOpen(section) {
+        setOpenSections((prev) => ({
+            ...prev,
+            [section]: !prev[section],
+        }));
     }
 
     return (
@@ -43,23 +44,15 @@ export default function HoodieDetails() {
                 <div>
                     <h3>Color</h3>
                     <div className="flex justify-center gap-3">
-                        {
-                            products.map((value, index) => {
-                                return (
-                                    <div key={index} className="flex flex-col items-center gap-y-2 cursor-pointer ">
-                                        
-                                        <img src={value.url} alt={value.color} className='size-10' />
-                                        <div><p>{value.color}</p></div>
-                                    </div>
-                                );
-                            })
-                        }
+                        {products.map((value, index) => (
+                            <div key={index} className="flex flex-col items-center gap-y-2 cursor-pointer">
+                                <img src={value.url} alt={value.color} className="size-10" />
+                                <div><p>{value.color}</p></div>
+                            </div>
+                        ))}
                     </div>
                 </div>
-                <div className="flex gap-1 items-center justify-center w-full h-8 bg-black text-white sticky top-[90%]">
-                    <i className="fa-solid fa-shopping-bag"></i>
-                    Add
-                </div>
+
                 <h3>Sizes</h3>
                 <div className="flex justify-around">
                     <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">XXS</div>
@@ -69,11 +62,50 @@ export default function HoodieDetails() {
                     <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">L</div>
                     <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">XL</div>
                 </div>
+
+                <div className="flex gap-1 items-center justify-center w-full h-8 bg-black text-white ">
+                    <i className="fa-solid fa-shopping-bag"></i>
+                    Add
+                </div>
+
                 <div>
                     <div><p>Find in store</p></div>
                     <div><p>Delivery Time : 2-7 Days</p></div>
                 </div>
+
                 <div><p>(2876 Reviews)</p></div>
+
+                <div className="details flex flex-col gap-y-3 ">
+                    <div className={`details flex flex-col border-t-[1px] border-b-[1px] border-black justify-center ${openSections.description ? "h-40" : "h-10"}`}>
+                        <div className="flex justify-between" onClick={() => handleOpen('description')}>
+                            <h3>Description & Fit</h3>
+                            <i className={`fa-solid ${openSections.description ? 'fa-arrow-down' : 'fa-arrow-up'}`}></i>
+                        </div>
+                        <div className={`${openSections.description ? "block" : "hidden"}`}>
+                            <p>Hoodie in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
+                        </div>
+                    </div>
+
+                    <div className="details flex flex-col">
+                        <div className="flex justify-between" onClick={() => handleOpen('details')}>
+                            <h3>Details</h3>
+                            <i className={`fa-solid ${openSections.details ? 'fa-arrow-down' : 'fa-arrow-up'}`}></i>
+                        </div>
+                        <div className={`${openSections.details ? "block gap-28" : "hidden"}`}>
+                            <p>Hoodie in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
+                        </div>
+                    </div>
+
+                    <div className="details flex flex-col">
+                        <div className="flex justify-between" onClick={() => handleOpen('careGuide')}>
+                            <h3>Care Guide</h3>
+                            <i className={`fa-solid ${openSections.careGuide ? 'fa-arrow-down' : 'fa-arrow-up'}`}></i>
+                        </div>
+                        <div className={`${openSections.careGuide ? "block" : "hidden"}`}>
+                            <p>Hoodie in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
