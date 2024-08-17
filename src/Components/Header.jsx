@@ -42,7 +42,7 @@ export default function Header() {
             </nav>
 
            {
-            menu ?  <MobileNav menu={menu} setMenu={setMenu}/> : ""
+            menu && <MobileNav  menu={menu} setMenu={setMenu}/> 
            }
         </header>
     );

@@ -1,6 +1,6 @@
 export default function MobileNav({ menu, setMenu }) {
     return (
-        <div className="h-screen w-full flex  absolute top-0 z-10">
+        <div className={`h-screen w-full flex  absolute top-0 z-10 ${menu ? "scale-in-hor-left" : "scale-in-hor-right"}`}>
 
             <div className="w-[90vw] h-screen bg-white flex flex-col items-center">
 
