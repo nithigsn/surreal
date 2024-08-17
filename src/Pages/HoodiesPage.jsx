@@ -1,4 +1,3 @@
-import HOODIES from "../Modules/Items";
 import { useUser } from "../Contexts/UserProvider";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +12,7 @@ export default function HoodiesPage() {
     navigate(`/hoodie/${index}`); // Navigate to the detail page with the hoodie index as a parameter
   };
 
-  console.log("fav", favourites);
+
 
 
 
