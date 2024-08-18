@@ -1,10 +1,12 @@
 import { useUser } from "../Contexts/UserProvider";
 import { useNavigate } from "react-router-dom";
+import CAPS from "../Modules/Caps";
 
 export default function Main() {
     const { products } = useUser();
 
     const slicedArr = products.slice(0, 4);
+    const slicedCaps=CAPS.slice(0, 4);
 
 
     const navigate = useNavigate();
@@ -64,6 +66,37 @@ export default function Main() {
                         party of the year on 22nd August
                     </p>
 
+                </div>
+
+
+                <div className="flex gap-2">
+                    <p>Finest Caps</p> <i className="fa-solid fa-heart"></i>
+                </div>
+
+
+                <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
+
+
+                    {
+                        slicedCaps.map((hoodie, index) => {
+                            return (
+                                <div key={index} className="h-[100px] w-[80px] flex flex-col items-center bg-slate-100 rounded-md">
+                                    <img src={hoodie.url} alt="" className="h-20 w-18" onClick={() => handleClick(index)} />
+                                    <div className="w-[150px] flex justify-end ">
+
+
+
+                                    </div>
+                                    <div className="items-start w-[80px]">
+                                        <p className="pl-2 text-[10px]">{hoodie.name}</p>
+                                        <p className="pl-2 text-[9px]">Rs {hoodie.price}</p>
+                                    </div>
+
+
+                                </div>
+                            );
+                        })
+                    }
                 </div>
             </div>
 

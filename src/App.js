@@ -11,6 +11,7 @@ import Tshirt from "./Pages/Tshirt";
 import HoodieDetails from "./Pages/HoodieDetails";
 import Footer from "./Components/Footer";
 import Sweatshirts from "./Pages/Sweatshirts";
+import CapsPage from "./Pages/CapsPage";
 
 
 
@@ -32,7 +33,8 @@ export default function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/hoodie" element={<HoodiesPage />} />
           <Route path='/hoodie/:id' element={<HoodieDetails/>}/>
-          <Route path="tshirt" element={<Tshirt/>}/>
+          <Route path="/tshirt" element={<Tshirt/>}/>
+          <Route path="/caps" element={<CapsPage/>}/>
           <Route path="sweatshirts" element={<Sweatshirts/>}/>
           <Route path="/favourite" element={<LikedPage/>}/>
           <Route path="/cart" element={<CartPage/>}/>

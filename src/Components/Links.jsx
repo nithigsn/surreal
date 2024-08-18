@@ -16,6 +16,9 @@ export default function Links() {
             <p onClick={() => navigate('/sweatshirts')} className={`${location.pathname === '/sweatshirts' ? "underline" : ""}`}>
                 Sweatshirt
             </p>
+            <p onClick={() => navigate('/caps')} className={`${location.pathname === '/caps' ? "underline" : ""}`}>
+                Caps
+            </p>
         </div>
     );
 }
