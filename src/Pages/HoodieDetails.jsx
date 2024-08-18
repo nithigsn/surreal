@@ -33,7 +33,7 @@ export default function HoodieDetails() {
                 <div className="lg:w-2/4 ">
                     <div className="flex justify-center text-start">
                         <img src={hoodie.url} alt={hoodie.name} className="h-50 w-44" />
-                        <i className="fa-regular fa-heart"></i>
+                        <i className="fa-regular fa-heart lg:hidden"></i>
                     </div>
                     <div className="w-full h-55 flex justify-center gap-2">
                         <img src={hoodie.url} alt="" className="h-44 w-40" />
@@ -44,10 +44,16 @@ export default function HoodieDetails() {
 
                 <div className="lg;w-2/4 flex gap-7  flex-col lg:gap-y-10">
 
-                    <div>
-                        <h1>{hoodie.name}</h1>
-                        <p>MRP inclusive of all taxes</p>
-                        <p>Rs. {hoodie.price}.00</p>
+                    <div className="flex justify-between">
+                        <div>
+                            <h1>{hoodie.name}</h1>
+                            <p>MRP inclusive of all taxes</p>
+                            <p>Rs. {hoodie.price}.00</p>
+                        </div>
+
+                        <div>
+                            <i className="fa-regular fa-heart hiiden lg:block"></i>
+                        </div>
                     </div>
 
                     <div className=" ">

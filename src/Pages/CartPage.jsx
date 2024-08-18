@@ -25,7 +25,7 @@ export default function CartPage() {
                                         <div className="w-[150px] flex justify-end ">
 
                                             {
-                                                favourites.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(hoodie)}></i>
+                                                favourites.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2 cursor-pointer" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2 cursor-pointer" onClick={() => addToFavourites(hoodie)}></i>
                                             }
 
                                         </div>
@@ -49,7 +49,7 @@ export default function CartPage() {
 
 
 
-                <div className={`${cart.length === 0 ? "hidden " : "flex gap-36 justify-center items-center bg-black text-white w-full h-10 lg:w-2/4 "} `}>
+                <div className={`${cart.length === 0 ? "hidden " : "flex gap-36 justify-center items-center bg-black text-white w-full h-10 lg:w-2/4  cursor-pointer"} `}>
                     <p>Buy</p>
                     <p>Total Price Rs:{price}</p></div>
 

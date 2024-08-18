@@ -17,7 +17,7 @@ export default function LikedPage() {
                                 <div className="w-[150px] flex justify-end ">
 
                                     {
-                                        favourites.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2"></i>
+                                        favourites.includes(hoodie) && <i className="fa-solid fa-heart text-end pr-2 cursor-pointer" onClick={() => editFavourites(index)}></i> 
                                     }
 
                                 </div>
@@ -25,7 +25,7 @@ export default function LikedPage() {
                                     <p className="pl-2">{hoodie.name}</p>
                                     <p className="pl-2">{hoodie.price}</p>
                                 </div>
-                                <div className="flex gap-1 items-center justify-center bg-black text-xs text-white w-28 h-6 rounded-sm mt-3">
+                                <div className="flex gap-1 items-center justify-center bg-black text-xs text-white w-28 h-6 rounded-sm mt-3 cursor-pointer">
                                     <button onClick={() => addToCart(hoodie)}> Add to</button>
                                     <i className="fa-solid fa-bag-shopping"></i>
                                 </div>

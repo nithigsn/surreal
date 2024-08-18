@@ -7,11 +7,10 @@ const UserContext = createContext();
 // Provider component
 export function UserProvider({ children }) {
 
-  const[products,setProducts]=useState(HOODIES);
-
+  const [products, setProducts] = useState(HOODIES);
   const [heart, setHeart] = useState(false);
 
-  // Safely retrieve and parse favourites from localStorage
+  // Parse favourites from localStorage on component mount
   const [favourites, setFavourites] = useState(() => {
     try {
       const savedFavourites = localStorage.getItem('favourites');
@@ -22,7 +21,7 @@ export function UserProvider({ children }) {
     }
   });
 
-  // Safely retrieve and parse cart from localStorage
+  // Parse cart from localStorage on component mount
   const [cart, setCart] = useState(() => {
     try {
       const savedCart = localStorage.getItem('cart');
@@ -33,46 +32,46 @@ export function UserProvider({ children }) {
     }
   });
 
-  // Persist cart state to localStorage
+  // Persist cart state to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
-  // Persist favourites state to localStorage
+  // Persist favourites state to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
 
+  // Function to add a product to the cart, if it's not already there
   function addToCart(value) {
     if (!cart.includes(value)) {
       setCart([...cart, value]);
+      console.log(value.name)
     }
-    else{
-      console.log("Already in a cart")
-    }
-
   }
 
+  // Function to remove a product from the cart by index
   function editCart(index) {
     const editedCart = cart.filter((_, i) => i !== index);
     setCart(editedCart);
   }
 
+  // Function to add a product to favourites, if it's not already there
   function addToFavourites(value) {
-
-   if(!favourites.includes(value)){
-    setFavourites([...favourites, value]);
-   }
-   
+    if (!favourites.includes(value)) {
+      setFavourites([...favourites, value]);
+    }
   }
 
+  // Function to remove a product from favourites by index
   function editFavourites(index) {
     const editedFavourites = favourites.filter((_, i) => i !== index);
     setFavourites(editedFavourites);
+    console.log("removed");
   }
 
   return (
-    <UserContext.Provider value={{ heart, favourites, cart, addToCart, editCart, addToFavourites, editFavourites,products }}>
+    <UserContext.Provider value={{ heart, favourites, cart, addToCart, editCart, addToFavourites, editFavourites, products }}>
       {children}
     </UserContext.Provider>
   );
