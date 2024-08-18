@@ -13,6 +13,7 @@ import Footer from "./Components/Footer";
 import Sweatshirts from "./Pages/Sweatshirts";
 import CapsPage from "./Pages/CapsPage";
 import CapDetails from "./Pages/CapDetails";
+import ItemDetails from "./Pages/ItemDetails";
 
 
 
@@ -40,6 +41,9 @@ export default function App() {
           <Route path="sweatshirts" element={<Sweatshirts/>}/>
           <Route path="/favourite" element={<LikedPage/>}/>
           <Route path="/cart" element={<CartPage/>}/>
+          {/* Test */}
+          <Route path="/details/:type/:id" element={<ItemDetails />} />
+
         </Routes>
         <Footer/>
       </BrowserRouter>

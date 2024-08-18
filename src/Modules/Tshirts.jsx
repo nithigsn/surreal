@@ -1,4 +1,4 @@
-const TSHIRTS = [
+const SHIRTS = [
     {
         name:"White Tshirt",
         price:399
@@ -14,4 +14,4 @@ const TSHIRTS = [
 
 ];
 
-module.exports=TSHIRTS;
+module.exports=SHIRTS;
