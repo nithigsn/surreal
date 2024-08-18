@@ -13,6 +13,9 @@ export default function HoodiesPage() {
   };
 
 
+  
+
+
 console.log(favourites);
 
 
@@ -26,11 +29,11 @@ console.log(favourites);
           products.map((hoodie, index) => {
             return (
               <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md">
-                <img src={hoodie.url} alt="" className="h-40 w-36" onClick={() => handleClick(index)} />
+                <img src={hoodie.url} alt="" className="h-40 " onClick={() => handleClick(index)} />
                 <div className="w-[150px] flex justify-end ">
 
                   {
-                    favourites.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(hoodie)}></i>
+                    favourites.find((item)=>item.id === hoodie.id) ? <i className="fa-solid fa-heart text-end text-red-500 pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(hoodie)}></i>
                   }
 
                 </div>

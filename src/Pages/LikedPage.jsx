@@ -13,7 +13,7 @@ export default function LikedPage() {
                     favourites.map((hoodie, index) => {
                         return (
                             <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md">
-                                <img src={hoodie.url} alt="" className="h-40 w-36" />
+                                <img src={hoodie.url} alt="" className="h-40 " />
                                 <div className="w-[150px] flex justify-end ">
 
                                     {

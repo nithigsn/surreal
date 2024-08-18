@@ -27,7 +27,7 @@ export default function Tshirt() {
                     products.map((hoodie, index) => {
                         return (
                             <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md">
-                                <img src={hoodie.url} alt="" className="h-40 w-36" onClick={() => handleClick(index)} />
+                                <img src={hoodie.url} alt="" className="h-40 " onClick={() => handleClick(index)} />
                                 <div className="w-[150px] flex justify-end ">
 
                                     {

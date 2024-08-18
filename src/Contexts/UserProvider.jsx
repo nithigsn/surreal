@@ -43,8 +43,14 @@ export function UserProvider({ children }) {
   }, [favourites]);
 
   // Function to add a product to the cart, if it's not already there
+
   function addToCart(value) {
-    if (!cart.includes(value)) {
+
+    const findId=value.id;
+
+    const checkItem=cart.find((item)=> item.id === findId);
+
+    if (!checkItem) {
       setCart([...cart, value]);
       console.log(value.name)
     }
@@ -52,13 +58,18 @@ export function UserProvider({ children }) {
 
   // Function to remove a product from the cart by index
   function editCart(index) {
+
     const editedCart = cart.filter((_, i) => i !== index);
+
     setCart(editedCart);
   }
 
   // Function to add a product to favourites, if it's not already there
   function addToFavourites(value) {
-    if (!favourites.includes(value)) {
+    
+    const findId=value.id;
+    const checkItem=favourites.find((item)=> item.id === findId);
+    if (!checkItem) {
       setFavourites([...favourites, value]);
     }
   }

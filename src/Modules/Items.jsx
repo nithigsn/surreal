@@ -1,6 +1,6 @@
 const HOODIES = [
     {
-        id: 1,
+        id: "64dfc4c1d0a1e6c7b14c3a2a",
         name: "White Hoodie",
         price: 799,
         url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723655591/white_hoodie_ut9tsh.png",
@@ -8,7 +8,7 @@ const HOODIES = [
         color: "White",
     },
     {
-        id: 2,
+        id: "64dfc4c1d0a1e6c7b14c3a2b",
         name: "Black Hoodie",
         price: 799,
         url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723655591/black_hoodie_ojx4cm.png",
@@ -16,7 +16,7 @@ const HOODIES = [
         color: "Black",
     },
     {
-        id: 3,
+        id: "64dfc4c1d0a1e6c7b14c3a2c",
         name: "Blue Hoodie",
         price: 799,
         url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723655592/blue_hoodie_zktqvr.png",
@@ -24,7 +24,7 @@ const HOODIES = [
         color: "Blue",
     },
     {
-        id: 4,
+        id: "64dfc4c1d0a1e6c7b14c3a2d",
         name: "Green Hoodie",
         price: 799,
         url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723832840/Picsart_24-08-16_23-44-05-072_zwothk.png",
@@ -32,7 +32,7 @@ const HOODIES = [
         color: "Green",
     },
     {
-        id: 5,
+        id: "64dfc4c1d0a1e6c7b14c3a2e",
         name: "Pink Hoodie",
         price: 799,
         url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723832840/Picsart_24-08-16_23-41-11-680_fjjq2g.png",
@@ -40,7 +40,7 @@ const HOODIES = [
         color: "Pink",
     },
     {
-        id: 6,
+        id: "64dfc4c1d0a1e6c7b14c3a2f",
         name: "Sky Blue Hoodie",
         price: 799,
         url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723832841/Picsart_24-08-16_23-47-18-391_enem4n.png",
@@ -48,7 +48,7 @@ const HOODIES = [
         color: "Sky Blue",
     },
     {
-        id: 7,
+        id: "64dfc4c1d0a1e6c7b14c3a30",
         name: "Orange Hoodie",
         price: 799,
         url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723832840/Picsart_24-08-16_23-42-27-257_u1bo7p.png",
@@ -56,7 +56,7 @@ const HOODIES = [
         color: "Orange",
     },
     {
-        id: 8,
+        id: "64dfc4c1d0a1e6c7b14c3a31",
         name: "Gray Hoodie",
         price: 799,
         url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723832841/Picsart_24-08-16_23-48-30-377_inqe7v.png",
