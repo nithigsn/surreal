@@ -71,14 +71,23 @@ export function UserProvider({ children }) {
     const checkItem = favourites.find((item) => item.id === findId);
     if (!checkItem) {
       setFavourites([...favourites, value]);
+      console.log("added to fav");
+    }
+    else{
+      console.log("Couldn't Add to fav");
     }
   }
 
   // Function to remove a product from favourites by index
-  function editFavourites(index) {
-    const editedFavourites = favourites.filter((_, i) => i !== index);
-    setFavourites(editedFavourites);
-    console.log("removed");
+  function editFavourites(value) {
+    // const editedFavourites = favourites.filter((_, i) => i !== index);
+    // setFavourites(editedFavourites);
+    // console.log("removed");
+    const findId =value.id;
+    const editFav= favourites.filter((item)=>item.id !== findId);
+    setFavourites(editFav);
+    console.log(value.id);
+
   }
 
 

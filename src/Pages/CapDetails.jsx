@@ -1,8 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
 import CAPS from "../Modules/Caps";
 import { useState } from "react";
+import { useUser } from "../Contexts/UserProvider";
 
 export default function CapDetails() {
+
+    const {favourites,addToFavourites,editFavourites}=useUser();
 
     const [openSections, setOpenSections] = useState({
         description: false,
@@ -58,8 +61,10 @@ export default function CapDetails() {
                             <p>Rs. {Cap.price}.00</p>
                         </div>
 
-                        <div>
-                            <i className="fa-regular fa-heart  lg:block"></i>
+                        <div className="cursor-pointer">
+                            {
+                                favourites.find((item) => item.id === Cap.id) ? <i className="fa-solid fa-heart text-red-500 hiiden lg:block" onClick={()=>editFavourites(Cap)}></i> : <i className="fa-regular fa-heart hiiden lg:block" onClick={()=>addToFavourites(Cap)}></i>
+                            }
                         </div>
                     </div>
 

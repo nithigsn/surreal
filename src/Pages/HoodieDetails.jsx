@@ -4,6 +4,8 @@ import { useUser } from "../Contexts/UserProvider";
 import { useState } from "react";
 
 export default function HoodieDetails() {
+
+    const { favourites, addToFavourites, editFavourites } = useUser()
     const [openSections, setOpenSections] = useState({
         description: false,
         details: false,
@@ -13,13 +15,15 @@ export default function HoodieDetails() {
     const { products } = useUser();
     const { id } = useParams();
     const hoodie = HOODIES[id];
+    console.log('hoodie is',hoodie)
+    console.log(favourites);
 
     if (!hoodie) {
         return <p>Hoodie not found</p>;
     }
 
 
-    
+
     function handleOpen(section) {
         setOpenSections((prev) => ({
             ...prev,
@@ -27,7 +31,7 @@ export default function HoodieDetails() {
         }));
     }
 
-  
+
     return (
         <div className="h-full w-full flex justify-center">
 
@@ -36,7 +40,7 @@ export default function HoodieDetails() {
                 <div className="lg:w-2/4 ">
                     <div className="flex justify-center text-start">
                         <img src={hoodie.url} alt={hoodie.name} className="h-50 w-44" />
-                        <i className="fa-regular fa-heart lg:hidden"></i>
+                        <i className="fa-regular fa-heart sm:hidden"></i>
                     </div>
                     <div className="w-full h-55 flex justify-center gap-2">
                         <img src={hoodie.url} alt="" className="h-44 w-40" />
@@ -54,8 +58,10 @@ export default function HoodieDetails() {
                             <p>Rs. {hoodie.price}.00</p>
                         </div>
 
-                        <div>
-                            <i className="fa-regular fa-heart hiiden lg:block"></i>
+                        <div className="cursor-pointer">
+                            {
+                                favourites.find((item) => item.id === hoodie.id) ? <i className="fa-solid fa-heart text-red-500 hiiden lg:block" onClick={()=>editFavourites(hoodie)}></i> : <i className="fa-regular fa-heart hiiden lg:block" onClick={()=>addToFavourites(hoodie)}></i>
+                            }
                         </div>
                     </div>
 

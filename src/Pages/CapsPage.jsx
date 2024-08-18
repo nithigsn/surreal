@@ -30,7 +30,7 @@ export default function CapsPage() {
                 <div className="w-[150px] flex justify-end ">
 
                   {
-                    favourites.includes(caps) ? <i className="fa-solid fa-heart text-end pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(caps)}></i>
+                    favourites.find((item)=>item.id === caps.id) ? <i className="fa-solid fa-heart text-red-500 text-end pr-2" onClick={() => editFavourites(caps)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(caps)}></i>
                   }
 
                 </div>
