@@ -46,9 +46,9 @@ export function UserProvider({ children }) {
 
   function addToCart(value) {
 
-    const findId=value.id;
+    const findId = value.id;
 
-    const checkItem=cart.find((item)=> item.id === findId);
+    const checkItem = cart.find((item) => item.id === findId);
 
     if (!checkItem) {
       setCart([...cart, value]);
@@ -66,9 +66,9 @@ export function UserProvider({ children }) {
 
   // Function to add a product to favourites, if it's not already there
   function addToFavourites(value) {
-    
-    const findId=value.id;
-    const checkItem=favourites.find((item)=> item.id === findId);
+
+    const findId = value.id;
+    const checkItem = favourites.find((item) => item.id === findId);
     if (!checkItem) {
       setFavourites([...favourites, value]);
     }
@@ -81,8 +81,14 @@ export function UserProvider({ children }) {
     console.log("removed");
   }
 
+
+  //function for dynamic route
+
+
+
+
   return (
-    <UserContext.Provider value={{ heart, favourites, cart, addToCart, editCart, addToFavourites, editFavourites, products }}>
+    <UserContext.Provider value={{ heart, favourites, cart, addToCart, editCart, addToFavourites, editFavourites, products,  }}>
       {children}
     </UserContext.Provider>
   );
