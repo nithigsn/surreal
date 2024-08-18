@@ -3,19 +3,30 @@ import { useNavigate } from "react-router-dom";
 import CAPS from "../Modules/Caps";
 
 export default function Main() {
+
     const { products } = useUser();
 
     const handleClick = (itemType, index) => {
         if (itemType === 'hoodie') {
-            navigate(`/hoodie/${index}`); // Navigate to the hoodie detail page
+            navigate(`/hoodie/${index}`); 
+            // Navigate to the hoodie detail page
         } else if (itemType === 'caps') {
             navigate(`/caps/${index}`); // Navigate to the cap detail page
         }
     };
 
+    const navigateCaps = (index) => {
+        navigate(`/caps/${index}`); // Navigate to the detail page with the hoodie index as a parameter
+      };
+
+
     // Slice Array and Show 
     const slicedArr = products.slice(0, 4);
     const slicedCaps = CAPS.slice(0, 4);
+
+    console.log(slicedCaps);
+
+
 
 
     const navigate = useNavigate();
@@ -87,20 +98,17 @@ export default function Main() {
                     {
                         slicedCaps.map((hoodie, index) => {
                             return (
-                                <div key={index} className="h-[100px] w-[80px] flex flex-col items-center bg-slate-100 rounded-md" onClick={() => handleClick("caps", index)}>
+                                <div key={index} className="h-[100px] w-[80px] flex flex-col items-center bg-slate-100 rounded-md cursor-pointer" onClick={() => navigateCaps(index)}>
                                     <img src={hoodie.url} alt="" className="h-20 w-18"  />
                                     <div className="w-[150px] flex justify-end ">
-
-
-
                                     </div>
                                     <div className="items-start w-[80px]">
                                         <p className="pl-2 text-[10px]">{hoodie.name}</p>
                                         <p className="pl-2 text-[9px]">Rs {hoodie.price}</p>
                                     </div>
 
-
                                 </div>
+
                             );
                         })
                     }

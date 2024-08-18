@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import HOODIES from "../Modules/Items";
 import { useUser } from "../Contexts/UserProvider";
 import { useState } from "react";
@@ -18,6 +18,8 @@ export default function HoodieDetails() {
         return <p>Hoodie not found</p>;
     }
 
+
+    
     function handleOpen(section) {
         setOpenSections((prev) => ({
             ...prev,
@@ -25,6 +27,7 @@ export default function HoodieDetails() {
         }));
     }
 
+  
     return (
         <div className="h-full w-full flex justify-center">
 
@@ -60,7 +63,7 @@ export default function HoodieDetails() {
                         <h3>Color</h3>
                         <div className="flex justify-center gap-3">
                             {products.map((value, index) => (
-                                <div key={index} className="flex flex-col items-center gap-y-2 cursor-pointer">
+                                <div key={index} className="flex flex-col items-center gap-y-2 cursor-pointer" >
                                     <img src={value.url} alt={value.color} className="size-10" />
                                     <div><p>{value.color}</p></div>
                                 </div>

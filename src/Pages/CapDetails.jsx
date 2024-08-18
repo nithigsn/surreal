@@ -43,8 +43,8 @@ export default function CapDetails() {
                         <i className="fa-regular fa-heart hidden lg:hidden"></i>
                     </div>
                     <div className="w-full h-55 flex justify-center gap-2">
-                        <img src={Cap.url} alt="" className="h-44 w-40" />
-                        <img src={Cap.url} alt="" className="h-44 w-32" />
+                        <img src={Cap.url} alt="" className="h-44 " />
+                        <img src={Cap.url} alt="" className="h-44 " />
                     </div>
 
                 </div>
