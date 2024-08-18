@@ -5,16 +5,23 @@ import CAPS from "../Modules/Caps";
 export default function Main() {
     const { products } = useUser();
 
+    const handleClick = (itemType, index) => {
+        if (itemType === 'hoodie') {
+            navigate(`/hoodie/${index}`); // Navigate to the hoodie detail page
+        } else if (itemType === 'caps') {
+            navigate(`/caps/${index}`); // Navigate to the cap detail page
+        }
+    };
+
+    // Slice Array and Show 
     const slicedArr = products.slice(0, 4);
-    const slicedCaps=CAPS.slice(0, 4);
+    const slicedCaps = CAPS.slice(0, 4);
 
 
     const navigate = useNavigate();
 
-    const handleClick = (index) => {
-      navigate(`/hoodie/${index}`); // Navigate to the detail page with the hoodie index as a parameter
-    };
-  
+
+
 
     return (
         <div className="w-full h-full flex justify-center">
@@ -42,7 +49,7 @@ export default function Main() {
                         slicedArr.map((hoodie, index) => {
                             return (
                                 <div key={index} className="h-[100px] w-[80px] flex flex-col items-center bg-slate-100 rounded-md">
-                                    <img src={hoodie.url} alt="" className="h-20 w-18" onClick={() => handleClick(index)} />
+                                    <img src={hoodie.url} alt="" className="h-20 w-18" onClick={() => handleClick("hoodie", index)} />
                                     <div className="w-[150px] flex justify-end ">
 
 
@@ -80,8 +87,8 @@ export default function Main() {
                     {
                         slicedCaps.map((hoodie, index) => {
                             return (
-                                <div key={index} className="h-[100px] w-[80px] flex flex-col items-center bg-slate-100 rounded-md">
-                                    <img src={hoodie.url} alt="" className="h-20 w-18" onClick={() => handleClick(index)} />
+                                <div key={index} className="h-[100px] w-[80px] flex flex-col items-center bg-slate-100 rounded-md" onClick={() => handleClick("caps", index)}>
+                                    <img src={hoodie.url} alt="" className="h-20 w-18"  />
                                     <div className="w-[150px] flex justify-end ">
 
 

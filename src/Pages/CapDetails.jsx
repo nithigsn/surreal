@@ -1,4 +1,4 @@
-import { useParams ,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import CAPS from "../Modules/Caps";
 import { useState } from "react";
 
@@ -10,7 +10,7 @@ export default function CapDetails() {
         careGuide: false,
     });
 
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     const { id } = useParams();
 
@@ -30,7 +30,7 @@ export default function CapDetails() {
 
     const handleClick = (index) => {
         navigate(`/caps/${index}`); // Navigate to the detail page with the hoodie index as a parameter
-      };
+    };
 
     return (
         <div className="h-full w-full flex justify-center">
@@ -67,7 +67,7 @@ export default function CapDetails() {
                         <h3>Color</h3>
                         <div className="flex justify-center gap-3">
                             {CAPS.map((value, index) => (
-                                <div key={index} className="flex flex-col items-center gap-y-1 cursor-pointer" onClick={()=>handleClick(index)}>
+                                <div key={index} className="flex flex-col items-center gap-y-1 cursor-pointer" onClick={() => handleClick(index)}>
                                     <img src={value.url} alt={value.color} className="" />
                                     <div><p>{value.color}</p></div>
                                 </div>
