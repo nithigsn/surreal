@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function HoodiesPage() {
 
-  const { addToCart, addToFavourites, editFavourites, favourites ,products } = useUser();
+  const { addToCart, addToFavourites, editFavourites, favourites, products } = useUser();
 
 
   const navigate = useNavigate();
@@ -11,12 +11,6 @@ export default function HoodiesPage() {
   const handleClick = (index) => {
     navigate(`/hoodie/${index}`); // Navigate to the detail page with the hoodie index as a parameter
   };
-
-
-  
-
-
-console.log(favourites);
 
 
   return (
@@ -33,7 +27,7 @@ console.log(favourites);
                 <div className="w-[150px] flex justify-end ">
 
                   {
-                    favourites.find((item)=>item.id === hoodie.id) ? <i className="fa-solid fa-heart text-end text-red-500 pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(hoodie)}></i>
+                    favourites.find((item) => item.id === hoodie.id) ? <i className="fa-solid fa-heart text-end text-red-500 pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(hoodie)}></i>
                   }
 
                 </div>

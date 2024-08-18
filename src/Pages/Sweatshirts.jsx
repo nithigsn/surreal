@@ -1,4 +1,3 @@
-import HOODIES from "../Modules/Items";
 import { useUser } from "../Contexts/UserProvider";
 import { useNavigate } from "react-router-dom";
 

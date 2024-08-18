@@ -4,7 +4,7 @@ import CAPS from "../Modules/Caps";
 
 export default function CapsPage() {
 
-  const { addToCart, addToFavourites, editFavourites, favourites ,products } = useUser();
+  const { addToCart, addToFavourites, editFavourites, favourites  } = useUser();
 
 
   const navigate = useNavigate();
