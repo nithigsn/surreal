@@ -13,6 +13,19 @@ p{
   font-size: small;
 }
 
+img{
+        background-size: contain;
+}
+
+.searchbar{
+        border: none;
+        outline: none;
+}
+.searchbar::placeholder{
+        font-size: large;
+      
+}
+
 /* Animation */
 .scale-in-hor-left {
 	-webkit-animation: scale-in-hor-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

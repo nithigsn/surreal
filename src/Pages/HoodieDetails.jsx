@@ -5,7 +5,10 @@ import { useState } from "react";
 
 export default function HoodieDetails() {
 
-    const { favourites, addToFavourites, editFavourites } = useUser()
+    const navigate = useNavigate();
+
+
+    const { favourites, addToFavourites, editFavourites } = useUser();
     const [openSections, setOpenSections] = useState({
         description: false,
         details: false,
@@ -15,7 +18,7 @@ export default function HoodieDetails() {
     const { products } = useUser();
     const { id } = useParams();
     const hoodie = HOODIES[id];
-    console.log('hoodie is',hoodie)
+    console.log('hoodie is', hoodie)
     console.log(favourites);
 
     if (!hoodie) {
@@ -32,26 +35,33 @@ export default function HoodieDetails() {
     }
 
 
+
+
+    const handleClick = (index) => {
+        navigate(`/hoodie/${index}`); // Navigate to the detail page with the hoodie index as a parameter
+    };
+
     return (
         <div className="h-full w-full flex justify-center">
 
             <div className="flex flex-col w-[90vw] h-full gap-y-3 lg:flex-row justify-center">
 
-                <div className="lg:w-2/4 ">
+                <div className="lg:w-2/4 h-[370px] ">
+
                     <div className="flex justify-center text-start">
                         <img src={hoodie.url} alt={hoodie.name} className="h-50 w-44" />
-                        <i className="fa-regular fa-heart sm:hidden"></i>
+                        <i className="fa-regular fa-heart hidden lg:block"></i>
                     </div>
                     <div className="w-full h-55 flex justify-center gap-2">
-                        <img src={hoodie.url} alt="" className="h-44 w-40" />
-                        <img src={hoodie.url} alt="" className="h-44 w-32" />
+                        <img src={hoodie.url} alt="" className="h-44 " />
+                        <img src={hoodie.url} alt="" className="h-44 " />
                     </div>
 
                 </div>
 
-                <div className="lg;w-2/4 flex gap-7  flex-col lg:gap-y-10">
+                <div className="lg;w-2/4 flex gap-y-3  flex-col lg:gap-y-10">
 
-                    <div className="flex justify-between">
+                    <div className="flex justify-between h-20 w-full ">
                         <div>
                             <h1>{hoodie.name}</h1>
                             <p>MRP inclusive of all taxes</p>
@@ -60,7 +70,7 @@ export default function HoodieDetails() {
 
                         <div className="cursor-pointer">
                             {
-                                favourites.find((item) => item.id === hoodie.id) ? <i className="fa-solid fa-heart text-red-500 hiiden lg:block" onClick={()=>editFavourites(hoodie)}></i> : <i className="fa-regular fa-heart hiiden lg:block" onClick={()=>addToFavourites(hoodie)}></i>
+                                favourites.find((item) => item.id === hoodie.id) ? <i className="fa-solid fa-heart text-red-500 hiiden lg:block" onClick={() => editFavourites(hoodie)}></i> : <i className="fa-regular fa-heart hiiden lg:block" onClick={() => addToFavourites(hoodie)}></i>
                             }
                         </div>
                     </div>
@@ -69,7 +79,7 @@ export default function HoodieDetails() {
                         <h3>Color</h3>
                         <div className="flex justify-center gap-3">
                             {products.map((value, index) => (
-                                <div key={index} className="flex flex-col items-center gap-y-2 cursor-pointer" >
+                                <div key={index} className="flex flex-col items-center gap-y-2 cursor-pointer" onClick={() => handleClick(index)} >
                                     <img src={value.url} alt={value.color} className="size-10" />
                                     <div><p>{value.color}</p></div>
                                 </div>
@@ -103,7 +113,7 @@ export default function HoodieDetails() {
                         <div className={`details flex flex-col border-t-[1px] border-b-[1px] border-black justify-center lg:w-[441px] ${openSections.description ? "h-40 scale-in-ver-top" : "h-10 scale-in-ver-bottom"}`}>
                             <div className="flex justify-between" onClick={() => handleOpen('description')}>
                                 <h3>Description & Fit</h3>
-                                <i className={`fa-solid ${openSections.description ? 'fa-arrow-down' : 'fa-arrow-up'}`}></i>
+                                <i className={`fa-solid ${openSections.description ? 'fa-arrow-up' : 'fa-arrow-down '}`}></i>
                             </div>
                             <div className={`${openSections.description ? "block" : "hidden"}`}>
                                 <p>Hoodie in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
@@ -113,7 +123,7 @@ export default function HoodieDetails() {
                         <div className={`details flex flex-col   border-black justify-center lg:w-[441px] ${openSections.details ? "h-40 scale-in-ver-top" : "h-10 scale-in-ver-bottom"}`}>
                             <div className="flex justify-between" onClick={() => handleOpen('details')}>
                                 <h3>Details</h3>
-                                <i className={`fa-solid ${openSections.details ? 'fa-arrow-down' : 'fa-arrow-up'}`}></i>
+                                <i className={`fa-solid ${openSections.details ? 'fa-arrow-up' : 'fa-arrow-down '}`}></i>
                             </div>
                             <div className={`${openSections.details ? "block " : "hidden"}`}>
                                 <p>Hoodie in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
@@ -123,7 +133,7 @@ export default function HoodieDetails() {
                         <div className={`details flex flex-col border-t-[1px] border-b-[1px] border-black justify-center lg:w-[441px]  ${openSections.careGuide ? "h-40 scale-in-ver-top" : "h-10 scale-in-ver-bottom"}`}>
                             <div className="flex justify-between" onClick={() => handleOpen('careGuide')}>
                                 <h3>Care Guide</h3>
-                                <i className={`fa-solid ${openSections.careGuide ? 'fa-arrow-down' : 'fa-arrow-up'}`}></i>
+                                <i className={`fa-solid ${openSections.careGuide ? 'fa-arrow-up' : 'fa-arrow-down '}`}></i>
                             </div>
                             <div className={`${openSections.careGuide ? "block" : "hidden"}`}>
                                 <p>Hoodie in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>

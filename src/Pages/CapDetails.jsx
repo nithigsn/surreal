@@ -105,7 +105,7 @@ export default function CapDetails() {
                                 <h3>Description & Fit</h3>
                                 <i className={`fa-solid ${openSections.description ? 'fa-arrow-down' : 'fa-arrow-up'}`}></i>
                             </div>
-                            <div className={`${openSections.description ? "block" : "hidden"}`}>
+                            <div className={`${openSections.description ? "block scale-in-ver-top" : "hidden"}`}>
                                 <p>Cap in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
                             </div>
                         </div>

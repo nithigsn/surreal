@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../Contexts/UserProvider';
 import MobileNav from './MobileNav';
+import MobileSearchBar from './MobileSearchBar';
 
 export default function Header() {
+
     const [menu, setMenu] = useState(false);
+    const [search, setSearch] = useState(false);
     const navigate = useNavigate();
     const { cart } = useUser();
 
@@ -18,7 +21,7 @@ export default function Header() {
                     <div className='px-1 w-5'>
                         <i className={`lg:hidden fa-solid ${menu ? "fa-x" : "fa-bars"}`} onClick={() => setMenu(!menu)}></i>
                     </div>
-                     <h1 className="text-center cursor-pointer px-2 ">Surreal Store</h1>
+                    <h1 className="text-center cursor-pointer px-2 ">Surreal Store</h1>
                 </div>
 
                 <div className="right flex w-2/4 justify-end cursor-pointer">
@@ -27,7 +30,13 @@ export default function Header() {
                             <i className="fa-regular fa-user" onClick={() => navigate('/profile')}></i>
                             <p className='hidden lg:block text-sm'>Sign In</p>
                         </div>
-                        <div className='flex gap-1 items-center' onClick={()=>navigate('/favourite')}>
+
+                        <div className='flex gap-1 items-center' onClick={() => setSearch(!search)}>
+                            <i className="fa-solid fa-magnifying-glass"></i>
+                            <p className='hidden lg:block text-sm'>Favourites</p>
+                        </div>
+
+                        <div className='flex gap-1 items-center' onClick={() => navigate('/favourite')}>
                             <i className="fa-regular fa-heart"></i>
                             <p className='hidden lg:block text-sm'>Favourites</p>
                         </div>
@@ -41,9 +50,13 @@ export default function Header() {
                 </div>
             </nav>
 
-           {
-            menu && <MobileNav  menu={menu} setMenu={setMenu}/> 
-           }
+            {
+                search && <MobileSearchBar search={search} setSearch={setSearch} />
+            }
+
+            {
+                menu && <MobileNav menu={menu} setMenu={setMenu} />
+            }
         </header>
     );
 }
