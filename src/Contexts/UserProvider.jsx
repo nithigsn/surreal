@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import HOODIES from "../Modules/Items";
+import Caps from '../Modules/Caps';
 
 // Create a context
 const UserContext = createContext();
@@ -8,6 +9,11 @@ const UserContext = createContext();
 export function UserProvider({ children }) {
 
   const [products, setProducts] = useState(HOODIES);
+
+  
+
+  const ALLPRODUCTS =[...products,...Caps];
+
   const [heart, setHeart] = useState(false);
 
   // Parse favourites from localStorage on component mount
@@ -97,7 +103,7 @@ export function UserProvider({ children }) {
 
 
   return (
-    <UserContext.Provider value={{ heart, favourites, cart, addToCart, editCart, addToFavourites, editFavourites, products,  }}>
+    <UserContext.Provider value={{ heart, favourites, cart, addToCart, editCart, addToFavourites, editFavourites, products, ALLPRODUCTS }}>
       {children}
     </UserContext.Provider>
   );

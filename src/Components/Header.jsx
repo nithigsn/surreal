@@ -9,7 +9,8 @@ export default function Header() {
     const [menu, setMenu] = useState(false);
     const [search, setSearch] = useState(false);
     const navigate = useNavigate();
-    const { cart } = useUser();
+
+    const { cart} = useUser();
 
 
 
