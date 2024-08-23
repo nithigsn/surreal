@@ -17,7 +17,7 @@ export default function LikedPage() {
                                 <div className="w-[150px] flex justify-end ">
 
                                     {
-                                        favourites.includes(hoodie) && <i className="fa-solid fa-heart text-end pr-2 cursor-pointer" onClick={() => editFavourites(index)}></i> 
+                                        favourites.includes(hoodie) && <i className="fa-solid fa-heart text-end pr-2 cursor-pointer" onClick={() => editFavourites(hoodie)}></i> 
                                     }
 
                                 </div>
