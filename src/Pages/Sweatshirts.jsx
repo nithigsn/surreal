@@ -1,45 +1,45 @@
 import { useUser } from "../Contexts/UserProvider";
 import { useNavigate } from "react-router-dom";
+import SWEATSHIRTS from "../Modules/Sweatshirts";
+export default function Sweatshirt() {
 
-export default function Sweatshirts() {
-
-    const { addToCart, addToFavourites, editFavourites, favourites, products } = useUser();
+    const { addToCart, addToFavourites, editFavourites, favourites } = useUser();
 
 
     const navigate = useNavigate();
 
     const handleClick = (index) => {
-        navigate(`/hoodie/${index}`); // Navigate to the detail page with the hoodie index as a parameter
+        // Navigate to the detail page with the Caps index as a parameter
+        navigate(`/caps/${index}`); 
     };
 
-    console.log("fav", favourites);
 
 
 
     return (
         <div className="w-full flex flex-col items-center justify-center ">
             <div className="text-center">
-                <p>Hoodies Page</p>
+                <p>Get comfortable for the Winter</p>
             </div>
             <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
                 {
-                    products.map((hoodie, index) => {
+                    SWEATSHIRTS.map((caps, index) => {
                         return (
                             <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md">
-                                <img src={hoodie.url} alt="" className="h-40 " onClick={() => handleClick(index)} />
+                                <img src={caps.url} alt="" className="h-40 " onClick={() => handleClick(index)} />
                                 <div className="w-[150px] flex justify-end ">
 
                                     {
-                                        products.includes(hoodie) === favourites.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(hoodie)}></i>
+                                        favourites.find((item) => item.id === caps.id) ? <i className="fa-solid fa-heart text-red-500 text-end pr-2" onClick={() => editFavourites(caps)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(caps)}></i>
                                     }
 
                                 </div>
                                 <div className="items-start w-[150px]">
-                                    <p className="pl-2">{hoodie.name}</p>
-                                    <p className="pl-2">{hoodie.price}</p>
+                                    <p className="pl-2">{caps.name}</p>
+                                    <p className="pl-2">{caps.price}</p>
                                 </div>
                                 <div className="flex gap-1 items-center justify-center bg-black text-xs text-white w-28 h-6 rounded-sm mt-3">
-                                    <button onClick={() => addToCart(hoodie)}> Add to</button>
+                                    <button disabled={favourites.includes(caps.name)} onClick={() => addToCart(caps)}> Add to</button>
                                     <i className="fa-solid fa-bag-shopping"></i>
                                 </div>
 

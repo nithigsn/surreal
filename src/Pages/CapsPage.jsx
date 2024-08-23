@@ -19,18 +19,21 @@ export default function CapsPage() {
   return (
     <div className="w-full flex flex-col items-center justify-center ">
       <div className="text-center">
-        <p>Capss Page</p>
+        <p>Add on to ur Style</p>
       </div>
       <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
         {
           CAPS.map((caps, index) => {
             return (
               <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md">
-                <img src={caps.url} alt="" className="h-40 " onClick={() => handleClick(index)} />
+
+                <div className="flex justify-center items-center h-44 w-44">
+                  <img src={caps.url} alt="" className="h-40 " onClick={() => handleClick(index)} />
+                </div>
                 <div className="w-[150px] flex justify-end ">
 
                   {
-                    favourites.find((item)=>item.id === caps.id) ? <i className="fa-solid fa-heart text-red-500 text-end pr-2" onClick={() => editFavourites(caps)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(caps)}></i>
+                    favourites.find((item) => item.id === caps.id) ? <i className="fa-solid fa-heart text-red-500 text-end pr-2" onClick={() => editFavourites(caps)}></i> : <i className="fa-regular fa-heart text-end pr-2" onClick={() => addToFavourites(caps)}></i>
                   }
 
                 </div>

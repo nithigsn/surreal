@@ -4,7 +4,7 @@ import { useUser } from "../Contexts/UserProvider";
 export default function MobileSearchBar({ search, setSearch }) {
 
     const { ALLPRODUCTS, favourites, addToCart, editFavourites, addToFavourites } = useUser();
-    const [query, setQuery] = useState("");  
+    const [query, setQuery] = useState("");
     const [filteredItems, setFilteredItems] = useState([]);
 
     const handleSearch = (e) => {

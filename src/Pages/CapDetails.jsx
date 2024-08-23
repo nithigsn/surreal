@@ -5,7 +5,7 @@ import { useUser } from "../Contexts/UserProvider";
 
 export default function CapDetails() {
 
-    const {favourites,addToFavourites,editFavourites}=useUser();
+    const { favourites, addToFavourites, editFavourites } = useUser();
 
     const [openSections, setOpenSections] = useState({
         description: false,
@@ -63,7 +63,7 @@ export default function CapDetails() {
 
                         <div className="cursor-pointer">
                             {
-                                favourites.find((item) => item.id === Cap.id) ? <i className="fa-solid fa-heart text-red-500 hiiden lg:block" onClick={()=>editFavourites(Cap)}></i> : <i className="fa-regular fa-heart hiiden lg:block" onClick={()=>addToFavourites(Cap)}></i>
+                                favourites.find((item) => item.id === Cap.id) ? <i className="fa-solid fa-heart text-red-500 hiiden lg:block" onClick={() => editFavourites(Cap)}></i> : <i className="fa-regular fa-heart hiiden lg:block" onClick={() => addToFavourites(Cap)}></i>
                             }
                         </div>
                     </div>
@@ -73,8 +73,13 @@ export default function CapDetails() {
                         <div className="flex justify-center gap-3">
                             {CAPS.map((value, index) => (
                                 <div key={index} className="flex flex-col items-center gap-y-1 cursor-pointer" onClick={() => handleClick(index)}>
-                                    <img src={value.url} alt={value.color} className="" />
-                                    <div><p>{value.color}</p></div>
+
+                                    <div className="flex flex-col justify-center items-center">
+                                        <img src={value.url} alt={value.color} className="" />
+                                        <div><p>{value.color}</p></div>
+
+                                    </div>
+
                                 </div>
                             ))}
                         </div>
