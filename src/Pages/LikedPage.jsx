@@ -14,8 +14,8 @@ export default function LikedPage() {
 
 
             {
-                favourites.length === 0 && 
-                
+                favourites.length === 0 &&
+
                 <div className="h-[50vh] w-full flex flex-col items-center justify-center ">
 
                     <p>Hey ! Your Favourite Colour is <span className="text-red-500">Red</span> Right ?</p>
@@ -30,16 +30,23 @@ export default function LikedPage() {
                         return (
                             <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md">
                                 <img src={hoodie.url} alt="" className="h-40 " />
-                                <div className="w-[150px] flex justify-end ">
 
-                                    {
-                                        favourites.includes(hoodie) && <i className="fa-solid fa-heart text-red-500 text-end pr-2 cursor-pointer" onClick={() => editFavourites(hoodie)}></i>
-                                    }
+                                <div className="flex justify-between w-[150px]">
 
-                                </div>
-                                <div className="items-start w-[150px]">
-                                    <p className="pl-2">{hoodie.name}</p>
-                                    <p className="pl-2">{hoodie.price}</p>
+                                    <div>
+                                        <p className="pl-2">{hoodie.name}</p>
+                                        <p className="pl-2">{hoodie.price}</p>
+                                    </div>
+
+                                    <div className=" ">
+
+                                        {
+                                            favourites.includes(hoodie) && <i className="fa-solid fa-heart text-red-500 text-end pr-2 cursor-pointer" onClick={() => editFavourites(hoodie)}></i>
+                                        }
+
+                                    </div>
+
+
                                 </div>
                                 <div className="flex gap-1 items-center justify-center bg-black text-xs text-white w-28 h-6 rounded-sm mt-3 cursor-pointer">
                                     <button onClick={() => addToCart(hoodie)}> Add to</button>

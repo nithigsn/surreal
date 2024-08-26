@@ -46,9 +46,6 @@ export default function App() {
           <Route path="sweatshirts" element={<Sweatshirts />} />
           <Route path="/favourite" element={<LikedPage />} />
           <Route path="/cart" element={<CartPage />} />
-          {/* Test */}
-
-
         </Routes>
         <Footer />
       </BrowserRouter>

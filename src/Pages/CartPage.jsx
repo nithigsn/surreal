@@ -22,16 +22,25 @@ export default function CartPage() {
                                 return (
                                     <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md">
                                         <img src={hoodie.url} alt="" className="h-40 " />
-                                        <div className="w-[150px] flex justify-end ">
 
-                                            {
-                                                favourites.includes(hoodie) ? <i className="fa-solid fa-heart text-end pr-2 cursor-pointer" onClick={() => editFavourites(index)}></i> : <i className="fa-regular fa-heart text-end pr-2 cursor-pointer" onClick={() => addToFavourites(hoodie)}></i>
-                                            }
+                                        <div className="flex justify-between w-[150px]">
 
-                                        </div>
-                                        <div className="items-start w-[150px]">
-                                            <p className="pl-2">{hoodie.name}</p>
-                                            <p className="pl-2">Rs {hoodie.price}</p>
+                                            <div>
+                                                <p className="pl-2">{hoodie.name}</p>
+                                                <p className="pl-2">Rs {hoodie.price}</p>
+                                            </div>
+
+                                            <div className="">
+                                                {
+                                                    favourites.find((item)=> item.id === hoodie.id) ? <i className="fa-solid fa-heart text-red-500" onClick={()=>editFavourites(hoodie)}></i> : <i className="fa-regular fa-heart" onClick={()=>addToFavourites(hoodie)}></i>
+                                                }
+
+                                             
+
+                                            </div>
+
+
+
                                         </div>
                                         <div className="flex gap-1 items-center justify-center bg-black text-xs text-white w-28 h-6 rounded-sm mt-3">
                                             <button onClick={() => editCart(index)}> Remove from</button>

@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUser } from "../Contexts/UserProvider";
 import { Navigate, useNavigate } from "react-router-dom";
 
 export default function MobileSearchBar({ search, setSearch }) {
 
     const { ALLPRODUCTS, favourites, addToCart, editFavourites, addToFavourites } = useUser();
+
+    const [placeHolder, setPlaceHolder] = useState("Hoodies");
+
     const [query, setQuery] = useState("");
+
     const [filteredItems, setFilteredItems] = useState([]);
 
     const [trigger, setTrigger] = useState(false);
 
     let searchResult = [];
 
+
+    // Function to search items
     const handleSearch = (e) => {
         if (e.key === "Enter") {
             searchResult = ALLPRODUCTS.filter((item) =>
@@ -28,9 +34,27 @@ export default function MobileSearchBar({ search, setSearch }) {
         }
     };
 
+
+    // function to change placeholder
+    useEffect(() => {
+        const firstTimeout = setTimeout(() => {
+            setPlaceHolder('Caps');
+
+            const secondTimeout = setTimeout(() => {
+                setPlaceHolder('Tshirt');
+            }, 3000); // 2 seconds
+            return () => clearTimeout(secondTimeout);
+        }, 2000); // 1 second
+
+        return () => clearTimeout(firstTimeout);
+    }, []);
+
+
+
+    //function to navigate
     const navigate = useNavigate();
 
-    const handleNav = (item,index) => {
+    const handleNav = (item, index) => {
         const type = item.type;
         const id = item.id;
         if (type === "hoodie") {
@@ -56,7 +80,7 @@ export default function MobileSearchBar({ search, setSearch }) {
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         onKeyDown={handleSearch}
-                        placeholder="Search"
+                        placeholder={`Search ${placeHolder}`}
                         className="w-[80%] searchbar"
                     />
                     <i className="fa-solid fa-x" onClick={() => setSearch(!search)}></i>
@@ -71,7 +95,7 @@ export default function MobileSearchBar({ search, setSearch }) {
 
             <div className="w-full h-screen flex flex-wrap gap-2 justify-center z-30 bg-white">
                 {filteredItems.map((item, index) => (
-                    <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md" onClick={() => handleNav(item,index)}>
+                    <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md" onClick={() => handleNav(item, index)}>
                         <img src={item.url} alt="" className="h-40" />
                         <div className="w-[150px] flex justify-end">
                             {favourites.find((finditem) => finditem.id === item.id) ? (
