@@ -10,6 +10,20 @@ export default function LikedPage() {
             <div className="text-center">
                 <p>Here's Your Favourites</p>
             </div>
+
+
+
+            {
+                favourites.length === 0 && 
+                
+                <div className="h-[50vh] w-full flex flex-col items-center justify-center ">
+
+                    <p>Hey ! Your Favourite Colour is <span className="text-red-500">Red</span> Right ?</p>
+                    <p>Serach Red Hoodie or Cap </p>
+
+
+                </div>
+            }
             <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
                 {
                     favourites.map((hoodie, index) => {
@@ -19,7 +33,7 @@ export default function LikedPage() {
                                 <div className="w-[150px] flex justify-end ">
 
                                     {
-                                        favourites.includes(hoodie) && <i className="fa-solid fa-heart text-red-500 text-end pr-2 cursor-pointer" onClick={() => editFavourites(hoodie)}></i> 
+                                        favourites.includes(hoodie) && <i className="fa-solid fa-heart text-red-500 text-end pr-2 cursor-pointer" onClick={() => editFavourites(hoodie)}></i>
                                     }
 
                                 </div>

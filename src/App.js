@@ -15,6 +15,7 @@ import CapsPage from "./Pages/CapsPage";
 import CapDetails from "./Pages/DetailsPage/CapDetails";
 import TshirtDetails from "./Pages/DetailsPage/TshirtDetails";
 import SweatshirtDetails from "./Pages/DetailsPage/SweatshirtDetails";
+import MobileSearchBar from "./Components/MobileSearchBar";
 
 
 
@@ -33,6 +34,7 @@ export default function App() {
         <Links />
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/search" element={<MobileSearchBar />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/hoodie" element={<HoodiesPage />} />
           <Route path='/hoodie/:id' element={<HoodieDetails />} />

@@ -9,8 +9,7 @@ export default function Sweatshirt() {
     const navigate = useNavigate();
 
     const handleClick = (index) => {
-        // Navigate to the detail page with the Caps index as a parameter
-        navigate(`/caps/${index}`);
+        navigate(`/tshirt/${index}`);
     };
 
 
@@ -49,9 +48,9 @@ export default function Sweatshirt() {
                 }
             </div>
 
-            <div>
 
-            </div>
+
+
 
         </div>
     );

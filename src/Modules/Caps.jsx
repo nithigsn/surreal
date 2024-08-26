@@ -6,6 +6,7 @@ const CAPS = [
         url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723964688/jsgyfhu7irvtu2md82ra.png",
         isliked: false,
         color: "White",
+        type:"cap"
     },
     {
         id: "64dfc4c1d0a1e6c7b14c3a1c",

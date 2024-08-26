@@ -19,7 +19,7 @@ export default function HoodieDetails() {
     const { id } = useParams();
     const hoodie = HOODIES[id];
     console.log('hoodie is', hoodie)
-    console.log(favourites);
+ 
 
     if (!hoodie) {
         return <p>Hoodie not found</p>;

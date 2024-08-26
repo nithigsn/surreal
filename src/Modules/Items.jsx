@@ -5,6 +5,7 @@ const HOODIES = [
         price: 799,
         url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723655591/white_hoodie_ut9tsh.png",
         color: "White",
+        type:"hoodie"
     },
     {
         id: "64dfc4c1d0a1e6c7b14c3a2b",

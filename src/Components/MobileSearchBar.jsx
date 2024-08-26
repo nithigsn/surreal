@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useUser } from "../Contexts/UserProvider";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function MobileSearchBar({ search, setSearch }) {
 
@@ -26,6 +27,22 @@ export default function MobileSearchBar({ search, setSearch }) {
 
         }
     };
+
+    const navigate = useNavigate();
+
+    const handleNav = (item,index) => {
+        const type = item.type;
+        const id = item.id;
+        if (type === "hoodie") {
+            navigate(`hoodie/${index}`);
+            setSearch(!search);
+
+        }
+        else if (type === "cap") {
+            navigate(`cap/${id}`)
+        }
+
+    }
 
 
     return (
@@ -54,7 +71,7 @@ export default function MobileSearchBar({ search, setSearch }) {
 
             <div className="w-full h-screen flex flex-wrap gap-2 justify-center z-30 bg-white">
                 {filteredItems.map((item, index) => (
-                    <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md">
+                    <div key={index} className="h-[281px] w-[180px] flex flex-col items-center bg-slate-100 rounded-md" onClick={() => handleNav(item,index)}>
                         <img src={item.url} alt="" className="h-40" />
                         <div className="w-[150px] flex justify-end">
                             {favourites.find((finditem) => finditem.id === item.id) ? (

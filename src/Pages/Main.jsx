@@ -147,7 +147,7 @@ export default function Main() {
                     {
                         slicedSweatShirts.map((item, index) => {
                             return (
-                                <div key={index} className="h-[100px] w-[90px] sm:h-[150px]  sm:w-[120px] flex flex-col items-center bg-slate-100 rounded-md cursor-pointer" onClick={() => handleClick("sweat", index)}>
+                                <div key={index} className="h-[100px] w-[80px] sm:h-[150px]  sm:w-[120px] flex flex-col items-center bg-slate-100 rounded-md cursor-pointer" onClick={() => handleClick("sweat", index)}>
                                     <img src={item.url} alt="" className="h-20 w-18 sm:h-32" />
                                     <div className="w-[150px] flex justify-end ">
                                     </div>
@@ -187,7 +187,7 @@ export default function Main() {
                     {
                         slicedTshirts.map((item, index) => {
                             return (
-                                <div key={index} className="h-[100px] w-[90px] sm:h-[150px]  sm:w-[120px] flex flex-col items-center bg-slate-100 rounded-md cursor-pointer" onClick={() => handleClick("tshirt", index)}>
+                                <div key={index} className="h-[100px] w-[80px] sm:h-[150px]  sm:w-[120px] flex flex-col items-center bg-slate-100 rounded-md cursor-pointer" onClick={() => handleClick("tshirt", index)}>
                                     <img src={item.url} alt="" className="h-20 w-18 sm:h-36" />
                                     <div className="w-[150px] flex justify-end ">
                                     </div>
