@@ -31,28 +31,28 @@ const TSHIRTS = [
         id: "tshirtdfc4c1d0a1e6c7b14c3a2e",
         name: "Pink Tshirt",
         price: 499,
-        url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723832840/Picsart_24-08-16_23-41-11-680_fjjq2g.png",
+        url: "",
         color: "Pink",
     },
     {
         id: "tshirtdfc4c1d0a1e6c7b14c3a2f",
         name: "Sky Blue Tshirt",
         price: 499,
-        url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723832841/Picsart_24-08-16_23-47-18-391_enem4n.png",
+        url: "",
         color: "Sky Blue",
     },
     {
         id: "tshirtdfc4c1d0a1e6c7b14c3a30",
         name: "Orange Tshirt",
         price: 499,
-        url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723832840/Picsart_24-08-16_23-42-27-257_u1bo7p.png",
+        url: "",
         color: "Orange",
     },
     {
         id: "tshirtdfc4c1d0a1e6c7b14c3a31",
         name: "Gray Tshirt",
         price: 499,
-        url: "https://res.cloudinary.com/dcfwaszea/image/upload/v1723832841/Picsart_24-08-16_23-48-30-377_inqe7v.png",
+        url: "",
         color: "Gray",
     }
 ];

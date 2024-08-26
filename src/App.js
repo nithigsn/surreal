@@ -8,12 +8,13 @@ import LikedPage from "./Pages/LikedPage";
 import { UserProvider } from "./Contexts/UserProvider";
 import CartPage from "./Pages/CartPage";
 import Tshirt from "./Pages/Tshirt";
-import HoodieDetails from "./Pages/HoodieDetails";
+import HoodieDetails from "./Pages/DetailsPage/HoodieDetails";
 import Footer from "./Components/Footer";
 import Sweatshirts from "./Pages/Sweatshirts";
 import CapsPage from "./Pages/CapsPage";
-import CapDetails from "./Pages/CapDetails";
-import ItemDetails from "./Pages/ItemDetails";
+import CapDetails from "./Pages/DetailsPage/CapDetails";
+import TshirtDetails from "./Pages/DetailsPage/TshirtDetails";
+import SweatshirtDetails from "./Pages/DetailsPage/SweatshirtDetails";
 
 
 
@@ -34,18 +35,20 @@ export default function App() {
           <Route path="/" element={<Main />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/hoodie" element={<HoodiesPage />} />
-          <Route path='/hoodie/:id' element={<HoodieDetails/>}/>
-          <Route path="/tshirt" element={<Tshirt/>}/>
-          <Route path="/caps" element={<CapsPage/>}/>
-          <Route path='/caps/:id' element={<CapDetails/>}/>
-          <Route path="sweatshirts" element={<Sweatshirts/>}/>
-          <Route path="/favourite" element={<LikedPage/>}/>
-          <Route path="/cart" element={<CartPage/>}/>
+          <Route path='/hoodie/:id' element={<HoodieDetails />} />
+          <Route path="/tshirt" element={<Tshirt />} />
+          <Route path="/caps" element={<CapsPage />} />
+          <Route path='/caps/:id' element={<CapDetails />} />
+          <Route path='/tshirt/:id' element={<TshirtDetails />} />
+          <Route path='/sweatshirt/:id' element={<SweatshirtDetails />} />
+          <Route path="sweatshirts" element={<Sweatshirts />} />
+          <Route path="/favourite" element={<LikedPage />} />
+          <Route path="/cart" element={<CartPage />} />
           {/* Test */}
-          <Route path="/details/:type/:id" element={<ItemDetails />} />
+
 
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </UserProvider>
   );

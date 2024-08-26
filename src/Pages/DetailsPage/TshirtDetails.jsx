@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
-import HOODIES from "../Modules/Items";
-import { useUser } from "../Contexts/UserProvider";
+import TSHIRTS from "../../Modules/Tshirts";
+import { useUser } from "../../Contexts/UserProvider";
 import { useState } from "react";
 
-export default function HoodieDetails() {
+export default function TshirtDetails() {
 
     const navigate = useNavigate();
 
@@ -17,12 +17,11 @@ export default function HoodieDetails() {
 
     const { products } = useUser();
     const { id } = useParams();
-    const hoodie = HOODIES[id];
-    console.log('hoodie is', hoodie)
-    console.log(favourites);
+    const tshirt = TSHIRTS[id];
 
-    if (!hoodie) {
-        return <p>Hoodie not found</p>;
+
+    if (!tshirt) {
+        return <p>tshirt not found</p>;
     }
 
 
@@ -38,7 +37,7 @@ export default function HoodieDetails() {
 
 
     const handleClick = (index) => {
-        navigate(`/hoodie/${index}`); // Navigate to the detail page with the hoodie index as a parameter
+        navigate(`/tshirt/${index}`); // Navigate to the detail page with the tshirt index as a parameter
     };
 
     return (
@@ -49,12 +48,12 @@ export default function HoodieDetails() {
                 <div className="lg:w-2/4 h-[370px] ">
 
                     <div className="flex justify-center text-start">
-                        <img src={hoodie.url} alt={hoodie.name} className="h-50 w-44" />
-                       
+                        <img src={tshirt.url} alt={tshirt.name} className="h-50 w-44" />
+
                     </div>
                     <div className="w-full h-55 flex justify-center gap-2">
-                        <img src={hoodie.url} alt="" className="h-44 " />
-                        <img src={hoodie.url} alt="" className="h-44 " />
+                        <img src={tshirt.url} alt="" className="h-44 " />
+                        <img src={tshirt.url} alt="" className="h-44 " />
                     </div>
 
                 </div>
@@ -63,14 +62,14 @@ export default function HoodieDetails() {
 
                     <div className="flex justify-between h-20 w-full ">
                         <div>
-                            <h1>{hoodie.name}</h1>
+                            <h1>{tshirt.name}</h1>
                             <p>MRP inclusive of all taxes</p>
-                            <p>Rs. {hoodie.price}.00</p>
+                            <p>Rs. {tshirt.price}.00</p>
                         </div>
 
                         <div className="cursor-pointer">
                             {
-                                favourites.find((item) => item.id === hoodie.id) ? <i className="fa-solid fa-heart text-red-500 hiiden lg:block" onClick={() => editFavourites(hoodie)}></i> : <i className="fa-regular fa-heart hiiden lg:block" onClick={() => addToFavourites(hoodie)}></i>
+                                favourites.find((item) => item.id === tshirt.id) ? <i className="fa-solid fa-heart text-red-500 hiiden lg:block" onClick={() => editFavourites(tshirt)}></i> : <i className="fa-regular fa-heart hiiden lg:block" onClick={() => addToFavourites(tshirt)}></i>
                             }
                         </div>
                     </div>
@@ -116,7 +115,7 @@ export default function HoodieDetails() {
                                 <i className={`fa-solid ${openSections.description ? 'fa-arrow-up' : 'fa-arrow-down '}`}></i>
                             </div>
                             <div className={`${openSections.description ? "block" : "hidden"}`}>
-                                <p>Hoodie in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
+                                <p>tshirt in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
                             </div>
                         </div>
 
@@ -126,7 +125,7 @@ export default function HoodieDetails() {
                                 <i className={`fa-solid ${openSections.details ? 'fa-arrow-up' : 'fa-arrow-down '}`}></i>
                             </div>
                             <div className={`${openSections.details ? "block " : "hidden"}`}>
-                                <p>Hoodie in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
+                                <p>tshirt in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
                             </div>
                         </div>
 
@@ -136,7 +135,7 @@ export default function HoodieDetails() {
                                 <i className={`fa-solid ${openSections.careGuide ? 'fa-arrow-up' : 'fa-arrow-down '}`}></i>
                             </div>
                             <div className={`${openSections.careGuide ? "block" : "hidden"}`}>
-                                <p>Hoodie in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
+                                <p>tshirt in midweight sweatshirt fabric made from a cotton blend with a soft brushed inside. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, a kangaroo pocket and wide ribbing at the cuffs and hem. Loose fit for a generous but not oversized silhouette.</p>
                             </div>
                         </div>
                     </div>

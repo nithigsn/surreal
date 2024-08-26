@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
-import CAPS from "../Modules/Caps";
+import CAPS from "../../Modules/Caps";
 import { useState } from "react";
-import { useUser } from "../Contexts/UserProvider";
+import { useUser } from "../../Contexts/UserProvider";
 
 export default function CapDetails() {
 

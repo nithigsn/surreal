@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import HOODIES from "../Modules/Items";
 import Caps from '../Modules/Caps';
+import TSHIRTS from "../Modules/Tshirts";
+import SWEATSHIRTS from "../Modules/Sweatshirts";
 
 // Create a context
 const UserContext = createContext();
@@ -10,9 +12,9 @@ export function UserProvider({ children }) {
 
   const [products, setProducts] = useState(HOODIES);
 
-  
 
-  const ALLPRODUCTS =[...products,...Caps];
+
+  const ALLPRODUCTS = [...products, ...Caps, ...TSHIRTS, ...SWEATSHIRTS];
 
   const [heart, setHeart] = useState(false);
 
@@ -79,15 +81,15 @@ export function UserProvider({ children }) {
       setFavourites([...favourites, value]);
       console.log("added to fav");
     }
-    else{
+    else {
       console.log("Couldn't Add to fav");
     }
   }
 
   // Function to remove a product from favourites by index
   function editFavourites(value) {
-    const findId =value.id;
-    const editFav= favourites.filter((item)=>item.id !== findId);
+    const findId = value.id;
+    const editFav = favourites.filter((item) => item.id !== findId);
     setFavourites(editFav);
     console.log(value.id);
 
