@@ -75,7 +75,7 @@ export default function CapDetails() {
                                 <div key={index} className="flex flex-col items-center gap-y-1 cursor-pointer" onClick={() => handleClick(index)}>
 
                                     <div className="flex flex-col justify-center items-center">
-                                        <img src={value.url} alt={value.color} className="" />
+                                        <img src={value.url} alt={value.color} className="size-16"/>
                                         <div><p>{value.color}</p></div>
 
                                     </div>

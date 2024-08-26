@@ -86,9 +86,6 @@ export function UserProvider({ children }) {
 
   // Function to remove a product from favourites by index
   function editFavourites(value) {
-    // const editedFavourites = favourites.filter((_, i) => i !== index);
-    // setFavourites(editedFavourites);
-    // console.log("removed");
     const findId =value.id;
     const editFav= favourites.filter((item)=>item.id !== findId);
     setFavourites(editFav);

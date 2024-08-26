@@ -50,7 +50,7 @@ export default function HoodieDetails() {
 
                     <div className="flex justify-center text-start">
                         <img src={hoodie.url} alt={hoodie.name} className="h-50 w-44" />
-                        <i className="fa-regular fa-heart hidden lg:block"></i>
+                       
                     </div>
                     <div className="w-full h-55 flex justify-center gap-2">
                         <img src={hoodie.url} alt="" className="h-44 " />

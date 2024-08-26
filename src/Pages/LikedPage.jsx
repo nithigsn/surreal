@@ -2,11 +2,13 @@ import { useUser } from "../Contexts/UserProvider";
 
 export default function LikedPage() {
 
-    const { favourites, editFavourites, addToCart } = useUser()
+    const { favourites, editFavourites, addToCart } = useUser();
+
+
     return (
         <div className="w-full flex flex-col items-center justify-center ">
             <div className="text-center">
-                <p>Hoodies Page</p>
+                <p>Here's Your Favourites</p>
             </div>
             <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
                 {

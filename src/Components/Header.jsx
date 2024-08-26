@@ -10,7 +10,7 @@ export default function Header() {
     const [search, setSearch] = useState(false);
     const navigate = useNavigate();
 
-    const { cart} = useUser();
+    const { cart } = useUser();
 
 
 
@@ -26,7 +26,7 @@ export default function Header() {
                 </div>
 
                 <div className="right flex w-2/4 justify-end cursor-pointer">
-                    <div className='flex w-24 gap-2 items-center justify-around text-black  font-thin lg:w-[300px]'>
+                    <div className='flex w-24 gap-2 items-center justify-around text-black  font-thin lg:w-[400px]'>
                         <div className='flex gap-1 items-center'>
                             <i className="fa-regular fa-user" onClick={() => navigate('/profile')}></i>
                             <p className='hidden lg:block text-sm'>Sign In</p>
