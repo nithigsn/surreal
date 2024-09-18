@@ -19,7 +19,7 @@ export default function HoodiesPage() {
         <p>Get Cozy with our hoodies</p>
       </div>
 
-      <div className="w-[90vw] flex flex-wrap gap-2 justify-center mt-5" >
+      <div className="w-[90vw] big:w-[60vw] flex flex-wrap gap-2 justify-center mt-5" >
         {
           products.map((hoodie, index) => {
             return (

@@ -22,7 +22,7 @@ export default function Header() {
                     <div className='px-1 w-5'>
                         <i className={`lg:hidden fa-solid ${menu ? "fa-x" : "fa-bars"}`} onClick={() => setMenu(!menu)}></i>
                     </div>
-                    <h1 className="text-center cursor-pointer px-2 ">Surreal Store</h1>
+                    <h1 className="text-center cursor-pointer px-2 " onClick={()=>navigate('/')}>Surreal Store</h1>
                 </div>
 
                 <div className="right flex w-2/4 justify-end cursor-pointer">

@@ -24,7 +24,7 @@ export default function LikedPage() {
 
                 </div>
             }
-            <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
+            <div className="w-[90vw] flex flex-wrap gap-2 justify-center big:w-[60vw]" >
                 {
                     favourites.map((hoodie, index) => {
                         return (

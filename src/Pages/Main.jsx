@@ -16,7 +16,7 @@ export default function Main() {
             navigate(`/caps/${index}`); // Navigate to the cap detail page
         } else if (itemType === "tshirt") {
             navigate(`/tshirt/${index}`)
-        } else if(itemType === "sweat"){
+        } else if (itemType === "sweat") {
             navigate(`/sweatshirt/${index}`);
         }
     };
@@ -44,13 +44,13 @@ export default function Main() {
     return (
         <div className="w-full h-full flex justify-center">
 
-            <div className="w-[90vw] h-full flex flex-col gap-y-7">
+            <div className="w-[90vw] big:w-[70vw] h-full flex flex-col gap-y-7">
 
                 <p className="text-center">Free shipping above 1,699</p>
 
 
 
-                <div className='flex flex-col w-full items-center  bg-blue-500 p-2'>
+                <div className='flex flex-col w-full justify-center items-center big:h-28  bg-blue-500 p-2 '>
                     <h3>Men's Bestseller Alert</h3>
                     <p>Starting at 399,grab them before they're gone!</p>
                 </div>
@@ -60,7 +60,7 @@ export default function Main() {
                 </div>
 
 
-                <div className="w-[90vw] flex flex-wrap gap-2   justify-center" >
+                <div className="w-[90vw] big:w-[70vw] flex flex-wrap gap-2   justify-center" >
 
 
                     {
@@ -89,7 +89,7 @@ export default function Main() {
 
                 {/* 2nd Box */}
 
-                <div className="flex flex-col items-center justify-center w-full h-16 bg-orange-400 box-border p-3 ">
+                <div className="flex flex-col items-center justify-center  big:h-28 w-full h-16 bg-orange-400 box-border p-3 ">
                     <h5>Members Contest Alert !</h5>
                     <p className="text-center">Win an exclusive invite to the designer launch
                         party of the year on 22nd August
@@ -103,7 +103,7 @@ export default function Main() {
                 </div>
 
 
-                <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
+                <div className="w-[90vw] big:w-[70vw] flex flex-wrap gap-2 justify-center" >
 
 
                     {
@@ -129,7 +129,7 @@ export default function Main() {
 
                 {/* 3rd Box */}
 
-                <div className="flex flex-col items-center justify-center w-full h-16 bg-blue-300 box-border p-3 ">
+                <div className="flex flex-col items-center justify-center  big:h-28 w-full h-16 bg-blue-300 box-border p-3 ">
                     <h5>Grab a deal while it's available !</h5>
                     <p className="text-center"> Enjoy cashbacks and Buy one Get One Offer before its gone.                    </p>
 
@@ -141,7 +141,7 @@ export default function Main() {
                 </div>
 
 
-                <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
+                <div className="w-[90vw] big:w-[70vw] flex flex-wrap gap-2 justify-center" >
 
 
                     {
@@ -167,7 +167,7 @@ export default function Main() {
 
                 {/* Box 4 */}
 
-                <div className="flex flex-col items-center justify-center w-full h-16 bg-green-300 box-border p-3 ">
+                <div className="flex flex-col items-center items-center big:h-28 w-full h-16 bg-green-300 box-border p-3 ">
                     <h5>Members Contest Alert !</h5>
                     <p className="text-center">Win an exclusive invite to the designer launch
                         party of the year on 22nd August
@@ -181,7 +181,7 @@ export default function Main() {
                 </div>
 
 
-                <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
+                <div className="w-[90vw] big:w-[70vw] flex flex-wrap gap-2 justify-center" >
 
 
                     {

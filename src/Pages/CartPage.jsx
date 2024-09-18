@@ -13,7 +13,7 @@ export default function CartPage() {
                 <p>Carts</p>
             </div>
 
-            <div className="flex flex-col items-center justify-center w-[90vw]">
+            <div className="flex flex-col items-center justify-center w-[90vw] big:w-[60vw]">
 
                 {
                     cart.length === 0 ? <div className="h-96 flex items-center justify-center"><img src="https://img.icons8.com/?size=100&id=Ot2P5D5MPltM&format=png&color=000000" alt="" /></div> : <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >

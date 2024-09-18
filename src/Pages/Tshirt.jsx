@@ -20,7 +20,7 @@ export default function Sweatshirt() {
             <div className="text-center">
                 <p>Check Out The Latest Tshirts</p>
             </div>
-            <div className="w-[90vw] flex flex-wrap gap-2 justify-center" >
+            <div className="w-[90vw] flex flex-wrap gap-2 justify-center big:w-[60vw]" >
                 {
                     TSHIRTS.map((caps, index) => {
                         return (
