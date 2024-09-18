@@ -16,7 +16,7 @@ export default function HoodiesPage() {
   return (
     <div className="w-full flex flex-col items-center justify-center ">
       <div className="text-center">
-        <p>Hoodies Page</p>
+        <p>Get Cozy with our hoodies</p>
       </div>
 
       <div className="w-[90vw] flex flex-wrap gap-2 justify-center mt-5" >

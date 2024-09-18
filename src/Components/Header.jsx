@@ -28,13 +28,13 @@ export default function Header() {
                 <div className="right flex w-2/4 justify-end cursor-pointer">
                     <div className='flex w-24 gap-2 items-center justify-around text-black  font-thin lg:w-[400px]'>
                         <div className='flex gap-1 items-center'>
-                            <i className="fa-regular fa-user" onClick={() => navigate('/profile')}></i>
+                            <i className="fa-regular fa-user" onClick={() => navigate('/signin')}></i>
                             <p className='hidden lg:block text-sm'>Sign In</p>
                         </div>
 
                         <div className='flex gap-1 items-center' onClick={() => setSearch(!search)}>
                             <i className="fa-solid fa-magnifying-glass"></i>
-                            <p className='hidden lg:block text-sm'>Favourites</p>
+                            <p className='hidden lg:block text-sm'>Search</p>
                         </div>
 
                         <div className='flex gap-1 items-center' onClick={() => navigate('/favourite')}>

@@ -8,18 +8,22 @@ export default function HoodieDetails() {
     const navigate = useNavigate();
 
 
-    const { favourites, addToFavourites, editFavourites } = useUser();
+    const { favourites, addToFavourites, editFavourites, addToCart } = useUser();
+
     const [openSections, setOpenSections] = useState({
         description: false,
         details: false,
         careGuide: false,
     });
 
+    const [size, setSize] = useState("M");
+
+
     const { products } = useUser();
     const { id } = useParams();
-    const hoodie = HOODIES[id];
-    console.log('hoodie is', hoodie)
- 
+    let hoodie = HOODIES[id];
+
+
 
     if (!hoodie) {
         return <p>Hoodie not found</p>;
@@ -41,10 +45,31 @@ export default function HoodieDetails() {
         navigate(`/hoodie/${index}`); // Navigate to the detail page with the hoodie index as a parameter
     };
 
+
+
+    
+
+    const selectSize = (itemsize) => {
+        setSize(itemsize);
+
+        const selectedSize = size;
+
+        let newhoodie = { ...hoodie, size };
+
+        console.log(itemsize, newhoodie);
+
+
+
+
+    }
+
+
+
+
     return (
         <div className="h-full w-full flex justify-center">
 
-            <div className="flex flex-col w-[90vw] h-full gap-y-3 lg:flex-row justify-center">
+            <div className="flex flex-col w-[90vw] h-full gap-y-2 lg:flex-row justify-center">
 
                 <div className="lg:w-2/4 h-[370px] ">
 
@@ -74,9 +99,9 @@ export default function HoodieDetails() {
                             }
                         </div>
                     </div>
-
+                    <h3>Color</h3>
                     <div className=" ">
-                        <h3>Color</h3>
+
                         <div className="flex justify-center gap-3">
                             {products.map((value, index) => (
                                 <div key={index} className="flex flex-col items-center gap-y-2 cursor-pointer" onClick={() => handleClick(index)} >
@@ -89,15 +114,15 @@ export default function HoodieDetails() {
 
                     <h3>Sizes</h3>
                     <div className="flex justify-around">
-                        <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">XXS</div>
-                        <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">XS</div>
-                        <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">S</div>
-                        <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">M</div>
-                        <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">L</div>
-                        <div className="h-7 w-10 text-xs flex items-center border border-black justify-center">XL</div>
+                        <div className={`${hoodie.size === "XXS" ? "bg-red-400 " : ""} h-7 w-10 text-xs flex items-center border border-black justify-center`} onClick={() => selectSize("XXS")}>XXS</div>
+                        <div className={`${hoodie.size === "XS" ? "bg-red-400 " : ""} h-7 w-10 text-xs flex items-center border border-black justify-center`} onClick={() => selectSize("XS")}>XS</div>
+                        <div className={`${hoodie.size === "S" ? "bg-red-400 " : ""} h-7 w-10 text-xs flex items-center border border-black justify-center`} onClick={() => selectSize("S")}>S</div>
+                        <div className={`${hoodie.size === "M" ? "bg-red-400 " : ""} h-7 w-10 text-xs flex items-center border border-black justify-center`} onClick={() => selectSize("M")}>M</div>
+                        <div className={`${hoodie.size === "L" ? "bg-red-400 " : ""} h-7 w-10 text-xs flex items-center border border-black justify-center`} onClick={() => selectSize("L")}>L</div>
+                        <div className={`${hoodie.size === "XL" ? "bg-red-400 " : ""} h-7 w-10 text-xs flex items-center border border-black justify-center`} onClick={() => selectSize("XL")}>XL</div>
                     </div>
 
-                    <div className="flex gap-1 items-center justify-center w-full h-8 bg-black text-white ">
+                    <div className="flex gap-1 items-center justify-center w-full h-8 bg-black text-white " onClick={() => addToCart(hoodie)}>
                         <i className="fa-solid fa-shopping-bag"></i>
                         Add
                     </div>

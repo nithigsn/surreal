@@ -26,35 +26,35 @@ const TSHIRTS = [
         price: 499,
         url:"https://res.cloudinary.com/dcfwaszea/image/upload/v1724433214/Picsart_24-08-21_21-16-24-880_ntclez.png",
         color: "Blue",
-    },
-    {
-        id: "tshirtdfc4c1d0a1e6c7b14c3a2e",
-        name: "Pink Tshirt",
-        price: 499,
-        url: "",
-        color: "Pink",
-    },
-    {
-        id: "tshirtdfc4c1d0a1e6c7b14c3a2f",
-        name: "Sky Blue Tshirt",
-        price: 499,
-        url: "",
-        color: "Sky Blue",
-    },
-    {
-        id: "tshirtdfc4c1d0a1e6c7b14c3a30",
-        name: "Orange Tshirt",
-        price: 499,
-        url: "",
-        color: "Orange",
-    },
-    {
-        id: "tshirtdfc4c1d0a1e6c7b14c3a31",
-        name: "Gray Tshirt",
-        price: 499,
-        url: "",
-        color: "Gray",
     }
+    // {
+    //     id: "tshirtdfc4c1d0a1e6c7b14c3a2e",
+    //     name: "Pink Tshirt",
+    //     price: 499,
+    //     url: "",
+    //     color: "Pink",
+    // },
+    // {
+    //     id: "tshirtdfc4c1d0a1e6c7b14c3a2f",
+    //     name: "Sky Blue Tshirt",
+    //     price: 499,
+    //     url: "",
+    //     color: "Sky Blue",
+    // },
+    // {
+    //     id: "tshirtdfc4c1d0a1e6c7b14c3a30",
+    //     name: "Orange Tshirt",
+    //     price: 499,
+    //     url: "",
+    //     color: "Orange",
+    // },
+    // {
+    //     id: "tshirtdfc4c1d0a1e6c7b14c3a31",
+    //     name: "Gray Tshirt",
+    //     price: 499,
+    //     url: "",
+    //     color: "Gray",
+    // }
 ];
 
 module.exports = TSHIRTS;
